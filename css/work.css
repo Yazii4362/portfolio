@@ -1,0 +1,137 @@
+/* work.css — Sangwha Cha 스타일 3열 그리드 + 필터 */
+
+.work {
+  background: var(--white);
+  padding: 80px 40px 120px;
+  min-height: 100vh;
+}
+
+.work__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── 섹션 헤더 + 필터 ── */
+.work__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1.5px solid var(--stroke-default);
+}
+
+.work__header { display: flex; align-items: baseline; gap: 12px; }
+.work__sec-num { font-family: var(--mono); font-size: 12px; color: var(--gray-400); }
+.work__sec-title {
+  font-family: var(--sans); font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px); letter-spacing: -0.02em;
+  color: var(--gray-900); line-height: 1;
+}
+
+.work__filter {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.work-filter {
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  color: var(--gray-500); background: none; border: none;
+  cursor: pointer; padding: 4px 0;
+  transition: color 0.2s;
+}
+.work-filter:hover { color: var(--gray-800); }
+.work-filter.is-active {
+  color: var(--gray-900); font-weight: 600;
+}
+.work-filter.is-active::before {
+  content: '● ';
+  font-size: 10px; vertical-align: middle;
+}
+
+/* ── 3열 그리드 ── */
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 24px;
+}
+
+.work-card {
+  display: flex; flex-direction: column; gap: 14px;
+  text-decoration: none; color: inherit;
+  transition: opacity 0.25s;
+}
+.work-card.is-hidden { display: none; }
+
+.work-card__thumb {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  border: 1.5px solid var(--stroke-default);
+  background: var(--gray-100);
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.35s, border-color 0.35s;
+}
+.work-card:hover .work-card__thumb {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg);
+  border-color: rgba(26, 115, 232, 0.3);
+}
+
+.work-card__cat {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  padding: 5px 12px; border-radius: var(--r-pill);
+  font-family: var(--sans); font-size: 11px; font-weight: 600;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid var(--stroke-default);
+  color: var(--gray-800);
+  backdrop-filter: blur(8px);
+}
+
+/* 썸네일 그라디언트 */
+.work-card__thumb--pairchive { background: linear-gradient(160deg, #1A73E8 0%, #C8DEFF 55%, #fff 100%); }
+.work-card__thumb--muda      { background: linear-gradient(160deg, #FBBC04 0%, #FFF5A0 50%, #fff 100%); }
+.work-card__thumb--impact    { background: linear-gradient(160deg, #34A853 0%, #D0F0DC 55%, #fff 100%); }
+.work-card__thumb--kkuki     { background: linear-gradient(160deg, #7C4DFF 0%, #F3EEFF 55%, #fff 100%); }
+.work-card__thumb--brand     { background: linear-gradient(160deg, #EA4335 0%, #FFE8E6 55%, #fff 100%); }
+.work-card__thumb--web       { background: linear-gradient(160deg, #0D5CC9 0%, #E0F4FF 55%, #fff 100%); }
+
+.work-card__thumb-name {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 700;
+  font-size: clamp(24px, 4vw, 36px); letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none; user-select: none;
+}
+
+/* 카드 하단 메타 */
+.work-card__meta { display: flex; flex-direction: column; gap: 6px; }
+
+.work-card__row {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+}
+.work-card__title {
+  font-family: var(--sans); font-size: 15px; font-weight: 600;
+  color: var(--gray-900); line-height: 1.2;
+}
+.work-card__year {
+  font-family: var(--mono); font-size: 12px; color: var(--gray-500);
+  flex-shrink: 0;
+}
+.work-card__desc {
+  font-family: var(--sans); font-size: 13px; line-height: 1.55;
+  color: var(--gray-600);
+}
+
+/* ── 반응형 ── */
+@media (max-width: 960px) {
+  .work__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .work { padding: 60px 20px 80px; }
+  .work__grid { grid-template-columns: 1fr; gap: 32px; }
+  .work__top { flex-direction: column; align-items: flex-start; }
+  .work__filter { gap: 14px; }
+}

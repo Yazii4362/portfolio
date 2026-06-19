@@ -1,0 +1,77 @@
+/* tokens.css — STROKE UI × WHITE+COLOR GRADIENT */
+:root {
+  /* ── 순백 베이스 ── */
+  --white: #FFFFFF;
+
+  /* ── 구글 4색 ── */
+  --g-blue:   #1A73E8;
+  --g-red:    #EA4335;
+  --g-yellow: #FBBC04;
+  --g-green:  #34A853;
+
+  /* ── 섹션별 배경 그라디언트 (흰+컬러) ── */
+  --bg-hero:    linear-gradient(180deg, #D4EDFF 0%, #FFFFFF 55%);
+  --bg-about:   linear-gradient(180deg, #FFFFFF 0%, #F0FBF4 100%);
+  --bg-field:   linear-gradient(180deg, #FFF8E0 0%, #FFFFFF 60%);
+  --bg-work:    linear-gradient(180deg, #FFFFFF 0%, #F0F4FF 100%);
+  --bg-contact: linear-gradient(180deg, #FFE8E6 0%, #FFFFFF 55%);
+
+  /* ── 구글맵 팔레트 ── */
+  --map-bg:       #E8E0D5;
+  --map-road:     #FFFFFF;
+  --map-road-y:   #FFF3C8;
+  --map-grass:    #C8DCA0;
+  --map-water:    #A8D4E8;
+  --map-building: #DDDBD5;
+  --map-border:   #CECCCA;
+  --map-label:    #6E6C6A;
+
+  /* ── 그레이 스케일 ── */
+  --gray-50:  #F8F9FA;
+  --gray-100: #F1F3F4;
+  --gray-200: #E8EAED;
+  --gray-300: #DADCE0;
+  --gray-400: #BDC1C6;
+  --gray-500: #9AA0A6;
+  --gray-600: #80868B;
+  --gray-700: #5F6368;
+  --gray-800: #3C4043;
+  --gray-900: #202124;
+
+  /* ── 스트로크 컬러 ── */
+  --stroke-default: #E8EAED;
+  --stroke-blue:    #1A73E8;
+  --stroke-green:   #34A853;
+  --stroke-red:     #EA4335;
+  --stroke-yellow:  #FBBC04;
+  --stroke-purple:  #7C4DFF;
+
+  /* ── 카드 내부 그라디언트 ── */
+  --card-blue:   linear-gradient(160deg, #EAF3FF 0%, #FFFFFF 60%);
+  --card-green:  linear-gradient(160deg, #E8F8EE 0%, #FFFFFF 60%);
+  --card-yellow: linear-gradient(160deg, #FFFBE0 0%, #FFFFFF 60%);
+  --card-red:    linear-gradient(160deg, #FFF0EE 0%, #FFFFFF 60%);
+  --card-purple: linear-gradient(160deg, #F3EEFF 0%, #FFFFFF 60%);
+
+  /* ── 타이포 (Apple system stack) ── */
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Apple SD Gothic Neo", "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
+  --display: var(--sans);
+  --serif: var(--sans);
+  --mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Mono", monospace;
+
+  /* ── 스페이싱 ── */
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px;
+  --s5:40px; --s6:64px; --s7:96px;
+
+  /* ── 반경 ── */
+  --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px; --r-pill: 999px;
+
+  /* ── 그림자 (부드럽게) ── */
+  --sh-xs: 0 1px 4px rgba(60,64,67,0.10);
+  --sh-sm: 0 2px 8px rgba(60,64,67,0.12), 0 1px 3px rgba(60,64,67,0.08);
+  --sh-md: 0 4px 18px rgba(60,64,67,0.13), 0 2px 6px rgba(60,64,67,0.08);
+  --sh-lg: 0 8px 32px rgba(60,64,67,0.14), 0 4px 10px rgba(60,64,67,0.08);
+  --sh-pin: 0 4px 14px rgba(0,0,0,0.22);
+
+  --container: 1120px;
+}

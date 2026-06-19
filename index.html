@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yazii — UX/UI Designer & Frontend</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/gnb.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/field-notes.css">
+  <link rel="stylesheet" href="css/work.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/footprints.css">
+</head>
+<body>
+
+<!-- 스크롤 발자국 (Marauder's Map) -->
+<div class="footprints" id="footprints" aria-hidden="true">
+  <div class="footprints__pin footprints__pin--start"></div>
+  <div class="footprints__trail" id="footprintTrail"></div>
+  <div class="footprints__pin footprints__pin--end" id="footprintEnd"></div>
+</div>
+
+<div id="scroll-container" data-scroll-container>
+
+<!-- ======= 01 HERO ======= -->
+<section id="hero" class="section hero" data-scroll-section>
+
+  <div class="hero__map" aria-hidden="true">
+    <div class="hero__map-grid"></div>
+    <div class="hero__road hero__road--h1"></div>
+    <div class="hero__road hero__road--h2"></div>
+    <div class="hero__road hero__road--v1"></div>
+    <div class="hero__road hero__road--v2"></div>
+    <div class="hero__block hero__block--grass"    style="top:15%;left:52%;width:120px;height:84px"></div>
+    <div class="hero__block hero__block--grass"    style="top:7%; left:71%;width:84px; height:60px"></div>
+    <div class="hero__block hero__block--water"    style="top:58%;left:68%;width:96px; height:68px"></div>
+    <div class="hero__block hero__block--building" style="top:64%;left:4%; width:68px; height:48px"></div>
+    <div class="hero__block hero__block--building" style="top:12%;left:27%;width:56px; height:40px"></div>
+    <div class="hero__block hero__block--building" style="top:42%;left:42%;width:44px; height:36px"></div>
+    <span class="hero__map-label" style="top:21%;left:6%">Mapo-gu</span>
+    <span class="hero__map-label" style="top:57%;left:61%">Seongbuk-ro</span>
+    <span class="hero__map-label" style="top:75%;left:16%">Hongdae</span>
+    <span class="hero__map-label" style="top:36%;left:71%">Sinchon</span>
+    <span class="hero__map-label" style="top:10%;left:38%">Mapo Bridge</span>
+  </div>
+
+  <div class="hero__content">
+
+    <!-- 중앙 3D 스티커 (Darshita-style focal graphic) -->
+    <div class="hero__stage" id="heroStage">
+      <div class="hero__badge" id="heroBadge" aria-hidden="true">
+        <span class="hero__badge-layer hero__badge-layer--shadow">Welcome to yazii's</span>
+        <span class="hero__badge-layer hero__badge-layer--face">Welcome to <em>yazii's</em></span>
+      </div>
+    </div>
+
+    <h1 class="hero__title" data-scroll data-scroll-speed="0.35">yazii</h1>
+    <p class="hero__subtitle">UI / UX Designer &amp; Frontend · Seoul</p>
+
+    <!-- GNB = 구글맵 검색창 (히어로 내 배치 → 스크롤 시 상단 고정) -->
+    <div class="gnb-wrap" id="gnbWrap">
+      <header class="gnb" id="gnb" role="banner">
+        <div class="gnb__bar">
+          <button class="gnb__input-row" id="gnbBtn" aria-expanded="false" aria-controls="gnbPanel" aria-label="네비게이션 메뉴">
+            <svg class="gnb__search-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+              <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            <span class="gnb__text" id="gnbText">where are you going?</span>
+            <div class="gnb__profile" aria-hidden="true">
+              <span class="gnb__profile-char">야</span>
+            </div>
+          </button>
+          <div class="gnb__panel" id="gnbPanel" role="navigation" aria-label="섹션 내비게이션">
+            <ul class="gnb__nav" role="list">
+              <li role="listitem">
+                <a href="#hero" class="gnb__nav-item" data-label="home">
+                  <span class="gnb__nav-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="#EA4335"/></svg>
+                  </span>
+                  <span class="gnb__nav-label">home</span>
+                </a>
+              </li>
+              <li role="listitem">
+                <a href="#about" class="gnb__nav-item" data-label="about">
+                  <span class="gnb__nav-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="#EA4335" stroke-width="1.8"/><path d="M4 20c0-3.31 3.58-6 8-6s8 2.69 8 6" stroke="#EA4335" stroke-width="1.8" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="gnb__nav-label">about</span>
+                </a>
+              </li>
+              <li role="listitem">
+                <a href="#field-notes" class="gnb__nav-item" data-label="field notes">
+                  <span class="gnb__nav-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2" stroke="#EA4335" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" stroke="#EA4335" stroke-width="1.8" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="gnb__nav-label">field notes</span>
+                </a>
+              </li>
+              <li role="listitem">
+                <a href="#work" class="gnb__nav-item" data-label="work">
+                  <span class="gnb__nav-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#EA4335" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#EA4335" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#EA4335" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#EA4335" stroke-width="1.8"/></svg>
+                  </span>
+                  <span class="gnb__nav-label">selected work</span>
+                </a>
+              </li>
+              <li role="listitem">
+                <a href="#contact" class="gnb__nav-item" data-label="contact">
+                  <span class="gnb__nav-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H4z" stroke="#EA4335" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 4l8 8 8-8" stroke="#EA4335" stroke-width="1.8" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="gnb__nav-label">contact</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="hero__location" aria-label="현재 위치: Seoul">
+      <div class="hero__location-dot" aria-hidden="true"></div>
+      currently exploring : Seoul
+    </div>
+
+    <div class="hero__bottom">
+      <div class="hero__compass" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <polygon points="12,3 14,11 12,13 10,11" fill="#EA4335"/>
+          <polygon points="12,21 14,13 12,11 10,13" fill="#BDC1C6"/>
+          <circle cx="12" cy="12" r="2" fill="#3C4043"/>
+        </svg>
+      </div>
+      <a href="#work" class="hero__cta" aria-label="작업물 보러 가기">See my route ↓</a>
+    </div>
+  </div>
+
+  <!-- 출발 핀 -->
+  <div class="hero__origin-pin" aria-label="출발지">
+    <svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M14 0C6.27 0 0 6.27 0 14c0 10.5 14 26 14 26S28 24.5 28 14C28 6.27 21.73 0 14 0z" fill="#1A73E8"/>
+      <circle cx="14" cy="14" r="5.5" fill="rgba(255,255,255,0.95)"/>
+    </svg>
+    <span class="hero__origin-label">출발지</span>
+  </div>
+
+  <!-- 플로팅 장소 칩 -->
+  <div class="hero__place-chip hero__place-chip--1" aria-hidden="true">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#34A853"/></svg>
+    Pairchive Studio
+  </div>
+  <div class="hero__place-chip hero__place-chip--2" aria-hidden="true">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#FBBC04"/></svg>
+    MUDA Lab
+  </div>
+  <div class="hero__place-chip hero__place-chip--3" aria-hidden="true">☕ Busier than usual</div>
+
+</section>
+
+<!-- ======= 02 ABOUT ======= -->
+<section id="about" class="section about" data-scroll-section>
+
+  <div class="about__header">
+    <span class="about__sec-num">02</span>
+    <h2 class="about__sec-title">about</h2>
+  </div>
+
+  <div class="about__card">
+    <!-- 왼쪽 -->
+    <div class="about__photo-col">
+      <div class="about__avatar" aria-label="야지 프로필 이미지">
+        <span class="about__avatar-text">야지</span>
+      </div>
+      <div class="about__role-pill">UI/UX Designer</div>
+    </div>
+
+    <!-- 오른쪽 -->
+    <div class="about__info-col">
+      <h3 class="about__name">yazii</h3>
+      <p class="about__location-line">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#1A73E8"/></svg>
+        UX/UI Designer based in Seoul
+      </p>
+
+      <span class="about__tag">
+        <svg width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.4l-3.7 2.2.7-4.1-3-2.9 4.2-.6L8 1z" fill="#3C4043"/></svg>
+        현장형 기획
+      </span>
+
+      <p class="about__bio">
+        제품 정의 · 디자인 시스템 · 퍼블리싱까지<br>하나의 흐름으로 설계합니다
+      </p>
+      <hr class="about__divider" aria-hidden="true">
+
+      <p class="about__tools-title">TOOLS</p>
+      <ul class="tools-list" aria-label="사용 툴 목록">
+        <li class="tool-row">
+          <div class="tool-row__id">
+            <img class="tool-row__ico" src="https://www.figma.com/favicon.ico" alt="Figma" width="16" height="16" loading="lazy">
+            <span class="tool-row__name">Figma</span>
+          </div>
+          <div class="tool-row__bar-track"><div class="tool-row__bar tool-row__bar--red" style="width:92%"></div></div>
+        </li>
+        <li class="tool-row">
+          <div class="tool-row__id">
+            <span class="tool-row__ico tool-row__ico--html" aria-hidden="true">&lt;/&gt;</span>
+            <span class="tool-row__name">HTML / CSS / JS</span>
+          </div>
+          <div class="tool-row__bar-track"><div class="tool-row__bar tool-row__bar--red" style="width:88%"></div></div>
+        </li>
+        <li class="tool-row">
+          <div class="tool-row__id">
+            <img class="tool-row__ico" src="https://jquery.com/favicon.ico" alt="jQuery" width="16" height="16" loading="lazy">
+            <span class="tool-row__name">jQuery</span>
+          </div>
+          <div class="tool-row__bar-track"><div class="tool-row__bar tool-row__bar--amber" style="width:65%"></div></div>
+        </li>
+        <li class="tool-row">
+          <div class="tool-row__id">
+            <img class="tool-row__ico" src="https://gsap.com/favicon.ico" alt="GSAP" width="16" height="16" loading="lazy" onerror="this.style.background='#88CE02';this.alt='G'">
+            <span class="tool-row__name">GSAP / Locomotive</span>
+          </div>
+          <div class="tool-row__bar-track"><div class="tool-row__bar tool-row__bar--amber" style="width:60%"></div></div>
+        </li>
+        <li class="tool-row">
+          <div class="tool-row__id">
+            <img class="tool-row__ico" src="https://www.adobe.com/favicon.ico" alt="Photoshop" width="16" height="16" loading="lazy">
+            <span class="tool-row__name">Photoshop</span>
+          </div>
+          <div class="tool-row__bar-track"><div class="tool-row__bar tool-row__bar--amber" style="width:58%"></div></div>
+        </li>
+        <li class="tool-row">
+          <div class="tool-row__id">
+            <img class="tool-row__ico" src="https://reactjs.org/favicon.ico" alt="React" width="16" height="16" loading="lazy">
+            <span class="tool-row__name">React / TypeScript</span>
+          </div>
+          <div class="tool-row__bar-track"><div class="tool-row__bar tool-row__bar--gray" style="width:35%"></div></div>
+        </li>
+        <li class="tool-row">
+          <div class="tool-row__id">
+            <img class="tool-row__ico" src="https://www.cursor.com/favicon.ico" alt="Cursor" width="16" height="16" loading="lazy">
+            <span class="tool-row__name">Cursor (AI vibe coding)</span>
+          </div>
+          <div class="tool-row__bar-track"><div class="tool-row__bar tool-row__bar--red" style="width:90%"></div></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<!-- ======= 03 FIELD NOTES ======= -->
+<section id="field-notes" class="section field-notes" data-scroll-section>
+
+  <div class="fn__header">
+    <span class="fn__sec-num">03</span>
+    <h2 class="fn__sec-title">field notes</h2>
+  </div>
+
+  <div class="fn__canvas" aria-label="한국 지도 위 필드 노트">
+
+    <!-- 한국 지도 SVG (인천-서울-경상북도 영주 구간) -->
+    <svg class="fn__korea-map" viewBox="0 0 800 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- 바다 배경 -->
+      <rect width="800" height="640" fill="#E8E0D5"/>
+      <!-- 한국 본토 실루엣 (단순화) -->
+      <path d="M 200 80 L 240 60 L 300 55 L 360 65 L 420 60 L 470 80 L 500 100
+               L 520 130 L 530 160 L 540 200 L 545 240 L 530 280 L 510 320
+               L 490 360 L 460 400 L 420 440 L 380 470 L 350 500 L 320 520
+               L 290 530 L 260 520 L 240 500 L 220 470 L 200 440
+               L 185 400 L 175 360 L 170 320 L 165 280 L 165 240
+               L 170 200 L 175 160 L 185 130 L 200 100 Z"
+            fill="#C8DCA0" stroke="#FFFFFF" stroke-width="2"/>
+      <!-- 도로/고속도로 -->
+      <line x1="280" y1="180" x2="420" y2="380" stroke="#FFFFFF" stroke-width="3" opacity="0.8"/>
+      <line x1="200" y1="220" x2="500" y2="220" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+      <line x1="340" y1="100" x2="340" y2="520" stroke="#FFFFFF" stroke-width="2" opacity="0.5"/>
+      <!-- 노란 도로 -->
+      <line x1="280" y1="180" x2="420" y2="380" stroke="#FFF3C8" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.7"/>
+      <!-- 강 (한강) -->
+      <path d="M 200 200 Q 280 190 340 195 Q 400 200 460 205 Q 500 208 530 200"
+            stroke="#A8D4E8" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <!-- 서해 -->
+      <rect x="0" y="0" width="175" height="640" fill="#A8D4E8" opacity="0.4" rx="0"/>
+      <!-- 남해 -->
+      <path d="M 260 530 Q 320 560 380 570 Q 440 560 500 530 L 500 640 L 260 640 Z"
+            fill="#A8D4E8" opacity="0.4"/>
+      <!-- 인천 도시 블록 -->
+      <rect x="195" y="190" width="28" height="20" fill="#DDDBD5" stroke="#CECCCA" stroke-width="1" rx="2"/>
+      <rect x="210" y="215" width="20" height="15" fill="#DDDBD5" stroke="#CECCCA" stroke-width="1" rx="2"/>
+      <!-- 서울 도시 블록 -->
+      <rect x="295" y="178" width="36" height="28" fill="#DDDBD5" stroke="#CECCCA" stroke-width="1" rx="2"/>
+      <rect x="315" y="165" width="24" height="20" fill="#DDDBD5" stroke="#CECCCA" stroke-width="1" rx="2"/>
+      <rect x="280" y="195" width="20" height="18" fill="#DDDBD5" stroke="#CECCCA" stroke-width="1" rx="2"/>
+      <!-- 경상북도 영주 -->
+      <rect x="405" y="338" width="22" height="16" fill="#DDDBD5" stroke="#CECCCA" stroke-width="1" rx="2"/>
+    </svg>
+
+    <div class="fn__grid" aria-hidden="true"></div>
+
+    <!-- 도시 레이블 -->
+    <span class="fn__city-label" style="top:30%;left:25%">인천</span>
+    <span class="fn__city-label" style="top:28%;left:38%">서울</span>
+    <span class="fn__city-label" style="top:54%;left:54%">경상북도</span>
+    <span class="fn__city-label" style="top:59%;left:57%">영주</span>
+
+    <!-- 경로 점선 -->
+    <svg class="fn__route" viewBox="0 0 800 640" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M 230 200 L 315 190 L 380 250 L 420 310 L 420 350"
+            stroke="#EA4335" stroke-width="2.5" stroke-dasharray="8 5" fill="none" opacity="0.6"/>
+    </svg>
+
+    <!-- 핀 카드 1 — 관찰 (인천) -->
+    <div class="fn-pin fn-pin--1">
+      <div class="fn-pin__card">
+        <span class="fn-pin__keyword">관찰</span>
+        <span class="fn-pin__place">Impactsquare · 인천</span>
+        <p class="fn-pin__text">로컬 브랜드 사람들이 어떻게 공간을 읽는지 눈으로 배웠다</p>
+      </div>
+      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#1A73E8"/>
+        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
+      </svg>
+    </div>
+
+    <!-- 핀 카드 2 — 현장 (서울) -->
+    <div class="fn-pin fn-pin--2">
+      <div class="fn-pin__card">
+        <span class="fn-pin__keyword">현장</span>
+        <span class="fn-pin__place">Kkuki · 서울</span>
+        <p class="fn-pin__text">기획이 화면보다 먼저라는 걸 커뮤니티 운영에서 체득했다</p>
+      </div>
+      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#FBBC04"/>
+        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
+      </svg>
+    </div>
+
+    <!-- 핀 카드 3 — 움직임 (강원) -->
+    <div class="fn-pin fn-pin--3">
+      <div class="fn-pin__card">
+        <span class="fn-pin__keyword">움직임</span>
+        <span class="fn-pin__place">Seoul → 각지</span>
+        <p class="fn-pin__text">걷다가 발견한 디테일이 결국 디자인 언어가 된다</p>
+      </div>
+      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#34A853"/>
+        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
+      </svg>
+    </div>
+
+    <!-- 핀 카드 4 — 실행 (경북) -->
+    <div class="fn-pin fn-pin--4">
+      <div class="fn-pin__card">
+        <span class="fn-pin__keyword">실행</span>
+        <span class="fn-pin__place">MUDA · 경상북도</span>
+        <p class="fn-pin__text">크라우드펀딩 266% — 만든 게 시장에서 증명됐다</p>
+        <span class="fn-pin__stat">266%</span>
+      </div>
+      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#EA4335"/>
+        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
+      </svg>
+    </div>
+
+    <!-- 핀 카드 5 — 연결 (영주) -->
+    <div class="fn-pin fn-pin--5">
+      <div class="fn-pin__card">
+        <span class="fn-pin__keyword">연결</span>
+        <span class="fn-pin__place">Pairchive · 영주</span>
+        <p class="fn-pin__text">두 사람의 링크가 쌓여 관계가 된다는 걸 설계하는 중</p>
+        <span class="fn-pin__badge">building now →</span>
+      </div>
+      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#9C27B0"/>
+        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======= 04 WORK ======= -->
+<section id="work" class="section work" data-scroll-section>
+
+  <div class="work__inner">
+
+    <div class="work__top">
+      <div class="work__header">
+        <span class="work__sec-num">04</span>
+        <h2 class="work__sec-title">work</h2>
+      </div>
+      <div class="work__filter" role="tablist" aria-label="프로젝트 필터">
+        <button type="button" class="work-filter is-active" data-filter="all" role="tab" aria-selected="true">Everything</button>
+        <button type="button" class="work-filter" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+        <button type="button" class="work-filter" data-filter="product" role="tab" aria-selected="false">UIUX | Product</button>
+      </div>
+    </div>
+
+    <div class="work__grid" aria-label="프로젝트 목록">
+
+      <a href="project-pairchive.html" class="work-card" data-category="product" aria-label="Pairchive">
+        <div class="work-card__thumb work-card__thumb--pairchive">
+          <span class="work-card__cat">Product | UXUI</span>
+          <span class="work-card__thumb-name" aria-hidden="true">Pairchive</span>
+        </div>
+        <div class="work-card__meta">
+          <div class="work-card__row">
+            <h3 class="work-card__title">Pairchive</h3>
+            <span class="work-card__year">2025</span>
+          </div>
+          <p class="work-card__desc">A chat-based link archive for two — building shared relationship memory from scattered URLs.</p>
+        </div>
+      </a>
+
+      <a href="project-muda.html" class="work-card" data-category="product" aria-label="MUDA">
+        <div class="work-card__thumb work-card__thumb--muda">
+          <span class="work-card__cat">Product | UXUI</span>
+          <span class="work-card__thumb-name" aria-hidden="true">MUDA</span>
+        </div>
+        <div class="work-card__meta">
+          <div class="work-card__row">
+            <h3 class="work-card__title">MUDA</h3>
+            <span class="work-card__year">2025</span>
+          </div>
+          <p class="work-card__desc">AI emotion diary that helps users reflect — crowdfunding reached 266% of goal.</p>
+        </div>
+      </a>
+
+      <a href="project-impactsquare.html" class="work-card" data-category="product" aria-label="Impactsquare">
+        <div class="work-card__thumb work-card__thumb--impact">
+          <span class="work-card__cat">Product | UXUI</span>
+          <span class="work-card__thumb-name" aria-hidden="true">Impact</span>
+        </div>
+        <div class="work-card__meta">
+          <div class="work-card__row">
+            <h3 class="work-card__title">Impactsquare</h3>
+            <span class="work-card__year">2024</span>
+          </div>
+          <p class="work-card__desc">Local brand popup UX — translating spatial experience into digital touchpoints.</p>
+        </div>
+      </a>
+
+      <a href="project-kkuki.html" class="work-card" data-category="product" aria-label="Kkuki">
+        <div class="work-card__thumb work-card__thumb--kkuki">
+          <span class="work-card__cat">Product | UXUI</span>
+          <span class="work-card__thumb-name" aria-hidden="true">Kkuki</span>
+        </div>
+        <div class="work-card__meta">
+          <div class="work-card__row">
+            <h3 class="work-card__title">Kkuki</h3>
+            <span class="work-card__year">2023</span>
+          </div>
+          <p class="work-card__desc">Community service planning — designing participation flows before screens.</p>
+        </div>
+      </a>
+
+      <a href="project-brand.html" class="work-card" data-category="branding" aria-label="Brand Work">
+        <div class="work-card__thumb work-card__thumb--brand">
+          <span class="work-card__cat">Branding</span>
+          <span class="work-card__thumb-name" aria-hidden="true">Brand</span>
+        </div>
+        <div class="work-card__meta">
+          <div class="work-card__row">
+            <h3 class="work-card__title">Brand Work</h3>
+            <span class="work-card__year">2022–24</span>
+          </div>
+          <p class="work-card__desc">Local brand graphics, event banners, and editorial design — where my journey started.</p>
+        </div>
+      </a>
+
+      <a href="project-web.html" class="work-card" data-category="product" aria-label="Web Projects">
+        <div class="work-card__thumb work-card__thumb--web">
+          <span class="work-card__cat">Product | UXUI</span>
+          <span class="work-card__thumb-name" aria-hidden="true">Web</span>
+        </div>
+        <div class="work-card__meta">
+          <div class="work-card__row">
+            <h3 class="work-card__title">Web Projects</h3>
+            <span class="work-card__year">2024–25</span>
+          </div>
+          <p class="work-card__desc">Responsive landing pages with GSAP &amp; Locomotive — design to publish in one flow.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======= 05 CONTACT ======= -->
+<section id="contact" class="section contact" data-scroll-section>
+  <div class="contact__map-bg" aria-hidden="true"></div>
+
+  <div class="contact__header">
+    <span class="contact__sec-num">05</span>
+    <h2 class="contact__sec-title">you've arrived</h2>
+  </div>
+
+  <div class="contact__pin-wrap" aria-hidden="true">
+    <svg class="contact__pin" width="64" height="96" viewBox="0 0 64 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M32 0C14.33 0 0 14.33 0 32c0 18 32 64 32 64S64 50 64 32C64 14.33 49.67 0 32 0z" fill="#EA4335"/>
+      <circle cx="32" cy="32" r="13" fill="rgba(255,255,255,0.2)"/>
+      <circle cx="32" cy="32" r="9.5" fill="rgba(255,255,255,0.92)"/>
+      <text x="32" y="37" text-anchor="middle" font-size="10" fill="#EA4335" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="700">야</text>
+    </svg>
+    <div class="contact__pin-shadow"></div>
+  </div>
+
+  <!-- ── What I'm looking for 체크리스트 ── -->
+  <div class="contact__checklist" aria-label="내가 찾는 것들">
+    <p class="contact__checklist-title">What I'm looking for</p>
+    <ul class="checklist">
+
+      <li class="checklist__item checklist__item--done" id="chk1">
+        <button class="checklist__box" aria-pressed="true" aria-label="다양한 팀, 완료됨">
+          <svg class="checklist__check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <polyline points="2,7 5.5,10.5 12,3" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span class="checklist__text">작은 팀, 빠른 실행</span>
+        <div class="checklist__divider" aria-hidden="true"></div>
+      </li>
+
+      <li class="checklist__item" id="chk2">
+        <button class="checklist__box" aria-pressed="false" aria-label="현장에서 만들어지는 제품, 클릭하여 체크">
+          <svg class="checklist__check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <polyline points="2,7 5.5,10.5 12,3" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span class="checklist__text">현장에서 만들어지는 제품</span>
+        <div class="checklist__divider" aria-hidden="true"></div>
+      </li>
+
+      <li class="checklist__item checklist__item--done" id="chk3">
+        <button class="checklist__box" aria-pressed="true" aria-label="의미있는 문제, 완료됨">
+          <svg class="checklist__check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <polyline points="2,7 5.5,10.5 12,3" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span class="checklist__text">의미있는 문제</span>
+        <div class="checklist__divider" aria-hidden="true"></div>
+      </li>
+
+      <li class="checklist__item" id="chk4">
+        <button class="checklist__box" aria-pressed="false" aria-label="디자인과 개발 사이, 클릭하여 체크">
+          <svg class="checklist__check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <polyline points="2,7 5.5,10.5 12,3" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span class="checklist__text">디자인과 개발 사이 어딘가</span>
+        <div class="checklist__divider" aria-hidden="true"></div>
+      </li>
+
+      <li class="checklist__item" id="chk5">
+        <button class="checklist__box" aria-pressed="false" aria-label="함께 만들 동료, 클릭하여 체크">
+          <svg class="checklist__check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <polyline points="2,7 5.5,10.5 12,3" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <span class="checklist__text">함께 만들 동료</span>
+        <div class="checklist__divider" aria-hidden="true"></div>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="contact__ctas">
+    <a href="/resume.pdf" class="contact__btn contact__btn--primary" download aria-label="레쥬메 다운로드">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 16l-5-5h3.5V4h3v7H17l-5 5z" fill="currentColor"/>
+        <path d="M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      레쥬메 다운로드
+    </a>
+    <a href="mailto:yazii@email.com" class="contact__btn contact__btn--secondary" aria-label="이메일 보내기">
+      이메일 보내기
+    </a>
+  </div>
+
+  <div class="contact__loc" aria-label="현재 위치 서울">
+    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="10" r="3" fill="#1A73E8"/>
+      <path d="M12 2C8.13 2 5 5.13 5 10c0 5.25 7 12 7 12s7-6.75 7-12c0-3.87-3.13-7-7-7z" stroke="#1A73E8" stroke-width="1.5" fill="none"/>
+    </svg>
+    currently exploring : Seoul
+  </div>
+
+  <div class="contact__socials" aria-label="소셜 링크">
+    <a href="https://linkedin.com" class="contact__social" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path d="M7 10h2v7H7v-7zm1-3a1.25 1.25 0 110 2.5A1.25 1.25 0 018 7zm4 3h2v1h.03C14.4 10.4 15.2 10 16.1 10c2.1 0 2.9 1.4 2.9 3.2V17h-2v-3.5c0-.8-.3-1.5-1.1-1.5-.9 0-1.4.6-1.4 1.5V17h-2v-7z" fill="#fff"/></svg>
+      <span>LinkedIn</span>
+    </a>
+    <a href="https://behance.net" class="contact__social" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#1769FF"/><path d="M9.5 7H6v10h3.8c1.9 0 3.5-1.1 3.5-3 0-1-.5-1.8-1.3-2.3.6-.4 1-1.1 1-1.9 0-1.7-1.4-2.8-3.5-2.8zm-.3 4H7.5V9h1.7c.8 0 1.3.4 1.3 1s-.5 1-1.3 1zm.2 4H7.5v-2.5h1.9c.9 0 1.5.5 1.5 1.2s-.5 1.3-1.5 1.3zM15 9.5h4M17 8c-1.7 0-3 1.3-3 3s1.3 3 3 3c1.1 0 2.1-.6 2.6-1.5H18c-.3.3-.6.5-1 .5-.9 0-1.5-.6-1.6-1.5H20v-.5c0-1.7-1.3-3-3-3zm-1.5 2.5c.1-.8.7-1.3 1.5-1.3s1.4.5 1.5 1.3h-3z" fill="#fff"/></svg>
+      <span>Behance</span>
+    </a>
+    <a href="mailto:yazii@email.com" class="contact__social" aria-label="이메일">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#5F6368"/><path d="M5 8l7 5 7-5M5 8h14v9H5V8z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Email</span>
+    </a>
+  </div>
+
+</section>
+
+</div><!-- /#scroll-container -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/screens.js"></script>
+</body>
+</html>

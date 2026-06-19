@@ -1,0 +1,140 @@
+/* about.css */
+
+.about {
+  background: var(--bg-about);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 80px 40px 100px;
+}
+
+.about__header {
+  width: 100%; max-width: var(--container);
+  display: flex; align-items: baseline; gap: 12px; margin-bottom: 48px;
+}
+.about__sec-num { font-family: var(--mono); font-size: 12px; color: var(--gray-400); }
+.about__sec-title {
+  font-family: var(--sans); font-weight: 700;
+  font-size: clamp(40px, 6vw, 72px); letter-spacing: -0.03em;
+  color: var(--gray-900); line-height: 1;
+}
+
+/* ── 카드 ── */
+.about__card {
+  width: 100%; max-width: 860px;
+  display: grid; grid-template-columns: 260px 1fr;
+  background: var(--white);
+  border: 1.5px solid var(--stroke-default);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-lg);
+  overflow: hidden;
+}
+
+/* 왼쪽 — green gradient */
+.about__photo-col {
+  background: linear-gradient(160deg, #D4EDDA 0%, #FFFFFF 70%);
+  border-right: 1.5px solid rgba(52,168,83,0.20);
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+  padding: 28px 20px 24px; min-height: 400px;
+}
+
+/* 아바타 — stroke ring */
+.about__avatar {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -65%);
+  width: 148px; height: 148px; border-radius: 50%;
+  background: linear-gradient(135deg, #C8E8D8, #A8D4C0);
+  display: flex; align-items: center; justify-content: center;
+  /* 이미지 아바타처럼 stroke ring */
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2.5px var(--g-green), var(--sh-md);
+  z-index: 1;
+}
+.about__avatar-text {
+  font-family: var(--sans); font-weight: 700; font-size: 32px; color: var(--gray-700);
+}
+
+/* 역할 버튼 — stroke pill with gradient */
+.about__role-pill {
+  position: relative; z-index: 1;
+  padding: 9px 22px; border-radius: var(--r-pill);
+  background: linear-gradient(135deg, #EA4335, #C5271B);
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.3);
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  box-shadow: var(--sh-sm);
+  white-space: nowrap;
+}
+
+/* 오른쪽 */
+.about__info-col {
+  padding: 28px 32px; display: flex; flex-direction: column; gap: 10px;
+}
+
+.about__name {
+  font-family: var(--sans); font-weight: 700;
+  font-size: 38px; line-height: 1; letter-spacing: -0.02em; color: var(--gray-900);
+}
+.about__location-line {
+  font-family: var(--sans); font-size: 13px; color: var(--gray-600);
+  display: flex; align-items: center; gap: 5px; margin-top: -4px;
+}
+
+.about__tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 13px; border-radius: var(--r-pill);
+  background: linear-gradient(135deg, #FFFBE0, #FFF5A0);
+  border: 1.5px solid rgba(251,188,4,0.50);
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  color: #7A5500; width: fit-content; box-shadow: var(--sh-xs);
+}
+
+.about__bio {
+  font-family: var(--sans); font-size: 14px; line-height: 1.7; color: var(--gray-800);
+}
+
+.about__divider { border: none; border-top: 1.5px solid var(--stroke-default); margin: 4px 0; }
+
+.about__tools-title {
+  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 6px;
+}
+
+.tools-list { display: flex; flex-direction: column; gap: 8px; }
+
+.tool-row { display: flex; align-items: center; gap: 10px; }
+.tool-row__id { display: flex; align-items: center; gap: 7px; width: 158px; flex-shrink: 0; }
+
+.tool-row__ico {
+  width: 16px; height: 16px; border-radius: 3px;
+  border: 1px solid var(--stroke-default);
+  object-fit: contain; flex-shrink: 0;
+}
+.tool-row__ico--html {
+  width: 16px; height: 16px; border-radius: 3px;
+  background: linear-gradient(135deg, #E34F26, #C23610);
+  color: #fff; font-size: 7px; font-weight: 700; font-family: monospace;
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.tool-row__name { font-family: var(--sans); font-size: 13px; color: var(--gray-800); white-space: nowrap; }
+
+.tool-row__bar-track {
+  flex: 1; height: 6px;
+  background: var(--gray-100);
+  border-radius: var(--r-pill); overflow: hidden;
+  border: 1px solid var(--stroke-default);
+}
+.tool-row__bar {
+  height: 100%; border-radius: var(--r-pill);
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.tool-row__bar--red   { background: linear-gradient(90deg, #EA4335, #FF7B6E); }
+.tool-row__bar--amber { background: linear-gradient(90deg, #FBBC04, #FFD060); }
+.tool-row__bar--gray  { background: linear-gradient(90deg, #BDC1C6, #DADCE0); }
+
+@media (max-width: 760px) {
+  .about__card { grid-template-columns: 1fr; }
+  .about__photo-col { min-height: 200px; }
+  .about__avatar { transform: translate(-50%, -58%); width: 110px; height: 110px; }
+  .about__info-col { padding: 20px 18px; }
+  .tool-row__id { width: 130px; }
+}

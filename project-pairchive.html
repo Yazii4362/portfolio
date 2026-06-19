@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pairchive — yazii</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/project.css">
+</head>
+<body class="proj">
+
+  <header class="proj-header">
+    <a href="index.html#work" class="proj-header__back">← Work</a>
+    <span class="proj-header__title">Pairchive · 01</span>
+    <a href="#" class="proj-header__top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="맨 위로">↑</a>
+  </header>
+
+  <section class="proj-intro">
+    <div class="proj-intro__tags">
+      <span class="proj-tag proj-tag--accent">Product | UXUI</span>
+      <span class="proj-tag">Mobile Web</span>
+      <span class="proj-tag">In Progress</span>
+    </div>
+    <h1 class="proj-intro__headline">
+      From scattered chat links<br>to a <em>shared archive</em> for two
+    </h1>
+    <p class="proj-intro__sub">
+      Pairchive는 두 사람만을 위한 링크 아카이빙 앱입니다.
+      카카오톡에 묻히던 URL을 모아, 관계의 기록이 되는 공간으로 설계했습니다.
+    </p>
+    <dl class="proj-intro__meta">
+      <div class="proj-intro__meta-item">
+        <dt class="proj-intro__meta-label">Role</dt>
+        <dd class="proj-intro__meta-value">UI/UX · Frontend</dd>
+      </div>
+      <div class="proj-intro__meta-item">
+        <dt class="proj-intro__meta-label">Year</dt>
+        <dd class="proj-intro__meta-value">2025</dd>
+      </div>
+      <div class="proj-intro__meta-item">
+        <dt class="proj-intro__meta-label">Team</dt>
+        <dd class="proj-intro__meta-value">2인 창업팀</dd>
+      </div>
+    </dl>
+  </section>
+
+  <div class="proj-features" aria-hidden="true">
+    <div class="proj-feature proj-feature--blue"><span class="proj-feature__label">Timeline</span></div>
+    <div class="proj-feature proj-feature--warm"><span class="proj-feature__label">Link Card</span></div>
+    <div class="proj-feature proj-feature--green"><span class="proj-feature__label">Pair Profile</span></div>
+  </div>
+
+  <div class="proj-screen">
+    <div class="proj-screen__frame proj-screen__frame--hero">
+      <div class="proj-screen__placeholder">Pairchive · App mockup</div>
+    </div>
+    <p class="proj-screen__caption">메인 타임라인 · Place Details 카드 스타일 UI</p>
+  </div>
+
+  <article class="proj-body">
+    <section class="proj-section">
+      <p class="proj-section__label">Problem</p>
+      <h2 class="proj-section__title">대화 속에 묻히는 링크</h2>
+      <p class="proj-section__text">
+        연인·친구 사이에서 하루에도 수십 개의 URL이 카톡에 쌓이지만, 며칠 뒤면 찾기 어렵습니다.
+        북마크 앱은 개인용이고, 공유 폴더는 둘 사이의 맥락을 담지 못합니다.
+      </p>
+    </section>
+    <section class="proj-section">
+      <p class="proj-section__label">Approach</p>
+      <h2 class="proj-section__title">Designing for two, not one</h2>
+      <p class="proj-section__text">
+        2인 페어를 전제로 한 IA. 핵심 원칙은 <strong>Archive, not Organize</strong> —
+        폴더보다 시간순 타임라인으로 자연스럽게 쌓이는 경험을 우선했습니다.
+      </p>
+    </section>
+  </article>
+
+  <div class="proj-split">
+    <div>
+      <p class="proj-section__label">Design System</p>
+      <h2 class="proj-section__title">Place Details에서 영감</h2>
+      <p class="proj-section__text">
+        구글 지도 Place Details 카드 레이아웃을 참고해 각 링크를
+        썸네일 · 제목 · 공유자 · 날짜로 스캔 가능하게 구성했습니다.
+      </p>
+    </div>
+    <div class="proj-screen__frame proj-screen__frame--tall">
+      <div class="proj-screen__placeholder">Link card UI</div>
+    </div>
+  </div>
+
+  <div class="proj-gallery">
+    <div class="proj-gallery__item">Pair invite flow</div>
+    <div class="proj-gallery__item">Shared timeline</div>
+  </div>
+
+  <hr class="proj-hr">
+
+  <article class="proj-body">
+    <section class="proj-section">
+      <p class="proj-section__label">Status</p>
+      <h2 class="proj-section__title">Building now</h2>
+      <p class="proj-section__text">
+        성신여대 창업지원단 선정 · MVP 개발 및 사용자 테스트 단계입니다.
+        Figma DS → 모바일 웹 프로토타입 → Cursor 기반 반복 개발로 진행 중입니다.
+      </p>
+    </section>
+  </article>
+
+  <footer class="proj-next">
+    <p class="proj-next__label">More work</p>
+    <div class="proj-next__grid">
+      <a href="project-muda.html" class="proj-next__card"><span class="proj-next__card-name">MUDA</span></a>
+      <a href="project-impactsquare.html" class="proj-next__card"><span class="proj-next__card-name">Impactsquare</span></a>
+      <a href="index.html#work" class="proj-next__card"><span class="proj-next__card-name">All projects →</span></a>
+    </div>
+    <a href="project-muda.html" class="proj-next__cta">Next case — MUDA →</a>
+  </footer>
+
+</body>
+</html>
