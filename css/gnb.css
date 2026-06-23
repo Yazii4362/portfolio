@@ -55,8 +55,8 @@
 .gnb__profile {
   width: 32px; height: 32px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FFF0EE 0%, #FFE8D6 100%);
-  border: 2px solid var(--g-red);
+  background: linear-gradient(135deg, var(--ngc-blush) 0%, var(--ngc-peach) 100%);
+  border: 2px solid var(--ngc-coral);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 0 0 2px var(--white), var(--sh-xs);
@@ -64,12 +64,12 @@
 }
 .gnb__input-row:hover .gnb__profile {
   transform: scale(1.06);
-  box-shadow: 0 0 0 2px var(--white), 0 2px 8px rgba(234,67,53,0.25);
+  box-shadow: 0 0 0 2px var(--white), 0 2px 8px rgba(255,125,89,0.28);
 }
 .gnb__profile-char {
   font-family: var(--sans);
   font-size: 13px; font-weight: 700;
-  color: var(--g-red);
+  color: var(--ngc-coral);
   line-height: 1;
   user-select: none;
 }
@@ -108,8 +108,8 @@
 .gnb__nav-item:last-child { border-bottom: none; }
 .gnb__nav-item:hover { background: var(--gray-50); }
 .gnb__nav-item.is-active { background: linear-gradient(90deg, #EAF3FF, #FFFFFF); }
-.gnb__nav-item.is-active .gnb__nav-label { color: var(--g-blue); font-weight: 600; }
-.gnb__nav-item.is-active .gnb__nav-icon-wrap { color: var(--g-blue); }
+.gnb__nav-item.is-active .gnb__nav-label { color: var(--ngc-coral); font-weight: 600; }
+.gnb__nav-item.is-active .gnb__nav-icon-wrap { color: var(--ngc-coral); }
 .gnb__nav-item:focus-visible { outline: 2px solid var(--g-blue); outline-offset: -2px; }
 
 /* 왼쪽 검색 아이콘 (구글 자동완성처럼) */

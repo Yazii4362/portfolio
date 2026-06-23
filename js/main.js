@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.__portfolioScroller = loco ? "#scroll-container" : undefined;
+  window.__portfolioLoco = loco;
 
   if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -147,38 +148,40 @@ document.addEventListener("DOMContentLoaded", () => {
     onScroll();
   }
 
-  /* ── Marauder's Map 발자국 트레일 ── */
-  const FOOTPRINT_SVG = `<svg viewBox="0 0 24 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <ellipse cx="12" cy="7" rx="5.5" ry="6.5"/>
-    <circle cx="6.5" cy="18" r="2.2"/><circle cx="11" cy="20" r="2.2"/><circle cx="15.5" cy="18" r="2.2"/>
-    <circle cx="8.5" cy="25" r="1.8"/><circle cx="13.5" cy="25" r="1.8"/><circle cx="11" cy="29" r="1.5"/>
+  /* ── 스크롤 진행 핀 트레일 ── */
+  const PIN_COLORS = ["c1", "c2", "c3", "c4", "c5"];
+  const PIN_SVG = `<svg viewBox="0 0 24 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z"/>
+    <circle cx="12" cy="12" r="4.5" fill="rgba(255,255,255,0.92)"/>
   </svg>`;
 
-  const FOOTPRINT_COUNT = 28;
+  const PIN_COUNT = 18;
   const trailEl = document.getElementById("footprintTrail");
   const endPin  = document.getElementById("footprintEnd");
-  const footprintEls = [];
+  const pinEls = [];
 
   if (trailEl) {
-    for (let i = 0; i < FOOTPRINT_COUNT; i++) {
+    for (let i = 0; i < PIN_COUNT; i++) {
       const el = document.createElement("div");
-      el.className = `footprint footprint--${i % 2 === 0 ? "left" : "right"}`;
-      el.style.top = `${6 + (i / (FOOTPRINT_COUNT - 1)) * 84}%`;
-      el.innerHTML = FOOTPRINT_SVG;
+      const side = i % 2 === 0 ? "left" : "right";
+      const color = PIN_COLORS[i % PIN_COLORS.length];
+      el.className = `footprint footprint--${side} footprint--${color}`;
+      el.style.top = `${7 + (i / (PIN_COUNT - 1)) * 82}%`;
+      el.innerHTML = PIN_SVG;
       trailEl.appendChild(el);
-      footprintEls.push(el);
+      pinEls.push(el);
     }
   }
 
-  const updateFootprints = (pct) => {
-    if (!footprintEls.length) return;
-    const active = Math.min(Math.floor(pct * FOOTPRINT_COUNT), FOOTPRINT_COUNT - 1);
+  const updateScrollPins = (pct) => {
+    if (!pinEls.length) return;
+    const active = Math.min(Math.floor(pct * PIN_COUNT), PIN_COUNT - 1);
     const stopped = pct >= 0.98;
 
-    footprintEls.forEach((fp, i) => {
-      fp.classList.toggle("is-visible", i <= active);
-      fp.classList.toggle("is-current", i === active);
-      fp.classList.toggle("is-stopped", stopped && i === active);
+    pinEls.forEach((pin, i) => {
+      pin.classList.toggle("is-visible", i <= active);
+      pin.classList.toggle("is-current", i === active);
+      pin.classList.toggle("is-stopped", stopped && i === active);
     });
 
     if (endPin) endPin.classList.toggle("is-visible", stopped);
@@ -187,13 +190,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (loco) {
     loco.on("scroll", ({ scroll, limit }) => {
       if (!limit.y) return;
-      updateFootprints(Math.min(scroll.y / limit.y, 1));
+      updateScrollPins(Math.min(scroll.y / limit.y, 1));
     });
   } else {
     window.addEventListener("scroll", () => {
       const doc = document.documentElement;
       const max = doc.scrollHeight - doc.clientHeight;
-      updateFootprints(max > 0 ? window.scrollY / max : 0);
+      updateScrollPins(max > 0 ? window.scrollY / max : 0);
     }, { passive: true });
   }
 

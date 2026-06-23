@@ -3,28 +3,48 @@
   /* ── 순백 베이스 ── */
   --white: #FFFFFF;
 
-  /* ── 구글 4색 ── */
-  --g-blue:   #1A73E8;
-  --g-red:    #EA4335;
-  --g-yellow: #FBBC04;
-  --g-green:  #34A853;
+  /* ── NGC 브랜드 팔레트 ── */
+  --ngc-olive:      #D1D161;
+  --ngc-coral:      #FF7D59;
+  --ngc-pink:       #FFBDE8;
+  --ngc-cream:      #FFFAED;
+  --ngc-periwinkle: #99B0ED;
+  --ngc-peach:      #FFE5E0;
+  --ngc-salmon:     #FAAB94;
+  --ngc-yellow:     #FFDE94;
+  --ngc-lavender:   #CDDBF9;
+  --ngc-blush:      #FFEDEA;
+  --ngc-navy:       #2C2C34;
 
-  /* ── 섹션별 배경 그라디언트 (흰+컬러) ── */
-  --bg-hero:    linear-gradient(180deg, #D4EDFF 0%, #FFFFFF 55%);
-  --bg-about:   linear-gradient(180deg, #FFFFFF 0%, #F0FBF4 100%);
-  --bg-field:   linear-gradient(180deg, #FFF8E0 0%, #FFFFFF 60%);
+  /* ── 구글 4색 → 지도 UI용 NGC 매핑 ── */
+  --g-blue:   var(--ngc-periwinkle);
+  --g-red:    var(--ngc-coral);
+  --g-yellow: var(--ngc-yellow);
+  --g-green:  var(--ngc-olive);
+
+  /* ── 섹션별 배경 (지도 구간) ── */
+  --bg-hero:    linear-gradient(180deg, var(--ngc-lavender) 0%, var(--ngc-cream) 55%);
+  --bg-about:   linear-gradient(180deg, #F3F3F3 0%, var(--ngc-cream) 100%);
+  --bg-field:   linear-gradient(180deg, var(--ngc-yellow) 0%, var(--ngc-cream) 60%);
   --bg-work:    linear-gradient(180deg, #FFFFFF 0%, #F0F4FF 100%);
-  --bg-contact: linear-gradient(180deg, #FFE8E6 0%, #FFFFFF 55%);
+  --bg-contact: linear-gradient(180deg, var(--ngc-pink) 0%, var(--ngc-cream) 55%);
 
-  /* ── 구글맵 팔레트 ── */
-  --map-bg:       #E8E0D5;
+  /* ── 지도 팔레트 ── */
+  --map-bg:       var(--ngc-cream);
   --map-road:     #FFFFFF;
-  --map-road-y:   #FFF3C8;
-  --map-grass:    #C8DCA0;
-  --map-water:    #A8D4E8;
-  --map-building: #DDDBD5;
-  --map-border:   #CECCCA;
-  --map-label:    #6E6C6A;
+  --map-road-y:   var(--ngc-yellow);
+  --map-grass:    var(--ngc-olive);
+  --map-water:    var(--ngc-lavender);
+  --map-building: var(--ngc-peach);
+  --map-border:   var(--ngc-salmon);
+  --map-label:    var(--ngc-navy);
+
+  /* ── 지도 핀 · 마커 ── */
+  --pin-1: var(--ngc-periwinkle);
+  --pin-2: var(--ngc-yellow);
+  --pin-3: var(--ngc-olive);
+  --pin-4: var(--ngc-coral);
+  --pin-5: var(--ngc-pink);
 
   /* ── 그레이 스케일 ── */
   --gray-50:  #F8F9FA;
@@ -38,20 +58,20 @@
   --gray-800: #3C4043;
   --gray-900: #202124;
 
-  /* ── 스트로크 컬러 ── */
+  /* ── 스트로크 컬러 (지도 UI) ── */
   --stroke-default: #E8EAED;
-  --stroke-blue:    #1A73E8;
-  --stroke-green:   #34A853;
-  --stroke-red:     #EA4335;
-  --stroke-yellow:  #FBBC04;
-  --stroke-purple:  #7C4DFF;
+  --stroke-blue:    var(--ngc-periwinkle);
+  --stroke-green:   var(--ngc-olive);
+  --stroke-red:     var(--ngc-coral);
+  --stroke-yellow:  var(--ngc-yellow);
+  --stroke-purple:  var(--ngc-pink);
 
-  /* ── 카드 내부 그라디언트 ── */
-  --card-blue:   linear-gradient(160deg, #EAF3FF 0%, #FFFFFF 60%);
-  --card-green:  linear-gradient(160deg, #E8F8EE 0%, #FFFFFF 60%);
-  --card-yellow: linear-gradient(160deg, #FFFBE0 0%, #FFFFFF 60%);
-  --card-red:    linear-gradient(160deg, #FFF0EE 0%, #FFFFFF 60%);
-  --card-purple: linear-gradient(160deg, #F3EEFF 0%, #FFFFFF 60%);
+  /* ── 카드 내부 그라디언트 (필드노트 핀) ── */
+  --card-blue:   linear-gradient(160deg, var(--ngc-lavender) 0%, var(--ngc-cream) 60%);
+  --card-green:  linear-gradient(160deg, rgba(209,209,97,0.45) 0%, var(--ngc-cream) 60%);
+  --card-yellow: linear-gradient(160deg, var(--ngc-yellow) 0%, var(--ngc-cream) 60%);
+  --card-red:    linear-gradient(160deg, var(--ngc-peach) 0%, var(--ngc-cream) 60%);
+  --card-purple: linear-gradient(160deg, var(--ngc-pink) 0%, var(--ngc-cream) 60%);
 
   /* ── 타이포 (Apple system stack) ── */
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Apple SD Gothic Neo", "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;

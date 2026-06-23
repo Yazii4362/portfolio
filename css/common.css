@@ -31,7 +31,7 @@ button { font: inherit; border: none; background: none; cursor: pointer; }
   width: 100%;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* ── 스트로크 카드 (공통) ── */
