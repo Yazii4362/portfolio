@@ -10,16 +10,12 @@ function initScreenAnimations() {
   const s = window.__portfolioScroller;
 
   /* 01 HERO */
-  gsap.from(".hero__badge", { scale: 0.94, y: 10, duration: 0.85, ease: "back.out(1.4)" });
-  gsap.from(".hero__title", { y: 28, duration: 0.9, ease: "power3.out", delay: 0.1 });
-  gsap.from(".hero__subtitle, .gnb-wrap", {
-    y: 16, duration: 0.6, stagger: 0.08, ease: "power2.out", delay: 0.22,
-  });
-  gsap.from(".hero__location, .hero__bottom", {
-    y: 14, duration: 0.55, stagger: 0.08, ease: "power2.out", delay: 0.38,
-  });
-  gsap.from(".hero__origin-pin, .hero__place-chip", {
-    scale: 0.92, y: 8, duration: 0.55, stagger: 0.1, ease: "back.out(1.5)", delay: 0.5,
+  gsap.from(".hero__topbar", { y: -16, opacity: 0, duration: 0.7, ease: "power2.out" });
+  gsap.from(".hero__bubble", { scale: 0.9, y: 10, duration: 0.65, ease: "back.out(1.5)", delay: 0.15 });
+  gsap.from(".hero__character", { y: 24, duration: 0.85, ease: "power3.out", delay: 0.2 });
+  gsap.from(".hero__dock", { y: 20, opacity: 0, duration: 0.7, ease: "power2.out", delay: 0.35 });
+  gsap.from(".hero__map-marker, .hero__map-badge", {
+    scale: 0.9, opacity: 0, duration: 0.5, stagger: 0.08, ease: "back.out(1.4)", delay: 0.4,
   });
 
   if (typeof ScrollTrigger === "undefined") return;
@@ -27,13 +23,13 @@ function initScreenAnimations() {
   const stDefaults = { scroller: s, once: true };
 
   /* 02 ABOUT */
-  gsap.from(".about__sheet", {
-    scrollTrigger: { trigger: "#about", ...stDefaults, start: "top 70%" },
-    y: 32, duration: 0.85, ease: "power2.out", immediateRender: false,
+  gsap.from(".about__place", {
+    scrollTrigger: { trigger: "#about", ...stDefaults, start: "top 72%" },
+    y: 28, duration: 0.8, ease: "power2.out", immediateRender: false,
   });
-  gsap.from(".about__polaroid, .about__id-card, .about__trait, .about__soft-chip", {
-    scrollTrigger: { trigger: "#about", ...stDefaults, start: "top 62%" },
-    y: 18, scale: 0.94, duration: 0.55, stagger: 0.06, ease: "back.out(1.4)", immediateRender: false,
+  gsap.from(".about__photo, .about__action, .about__detail-item", {
+    scrollTrigger: { trigger: "#about", ...stDefaults, start: "top 65%" },
+    y: 14, opacity: 0, duration: 0.5, stagger: 0.06, ease: "power2.out", immediateRender: false,
   });
 
   /* 03 FIELD NOTES */
@@ -57,13 +53,13 @@ function initScreenAnimations() {
   });
 
   /* 05 CONTACT */
-  gsap.from(".contact__sec-title", {
-    scrollTrigger: { trigger: "#contact", ...stDefaults, start: "top 75%" },
-    y: 18, duration: 0.75, ease: "power2.out", immediateRender: false,
+  gsap.from(".contact__frame", {
+    scrollTrigger: { trigger: "#contact", ...stDefaults, start: "top 78%" },
+    y: 32, opacity: 0, duration: 0.85, ease: "power2.out", immediateRender: false,
   });
-  gsap.from(".contact__ctas, .contact__loc, .contact__socials", {
-    scrollTrigger: { trigger: "#contact", ...stDefaults, start: "top 65%" },
-    y: 14, duration: 0.55, stagger: 0.1, ease: "power2.out", immediateRender: false,
+  gsap.from(".contact__panel > *", {
+    scrollTrigger: { trigger: "#contact", ...stDefaults, start: "top 68%" },
+    y: 16, opacity: 0, duration: 0.55, stagger: 0.07, ease: "power2.out", immediateRender: false,
   });
 
   /* Locomotive 레이아웃 반영 후 ScrollTrigger 재계산 */
