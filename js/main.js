@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   var PROJECTS = {
+    muda: {
+      name: 'MUDA',
+      descKey: 'work.muda',
+      slug: 'muda',
+      tags: [
+        { key: 'tag.productOwner', color: 'green' },
+        { key: 'chip.product', color: 'slate' },
+        { key: 'chip.prototype', color: 'amber' }
+      ]
+    },
     pairchive: {
       name: 'Pairchive',
       descKey: 'work.pairchive',
@@ -8,27 +18,17 @@ document.addEventListener('DOMContentLoaded', function () {
       tags: [
         { key: 'tag.founderDesign', color: 'purple' },
         { key: 'chip.uiux', color: 'slate' },
-        { key: 'chip.frontend', color: 'navy' }
+        { key: 'chip.figma', color: 'navy' }
       ]
     },
-    muda: {
-      name: 'MUDA',
-      descKey: 'work.muda',
-      slug: 'muda',
+    strawberryfields: {
+      name: 'Strawberry Fields',
+      descKey: 'work.strawberryfields',
+      slug: 'strawberryfields',
       tags: [
-        { key: 'tag.productDesign', color: 'green' },
-        { key: 'chip.uiux', color: 'slate' },
-        { key: 'chip.prototype', color: 'amber' }
-      ]
-    },
-    impactsquare: {
-      name: 'ImpactSquare',
-      descKey: 'work.impactsquare',
-      slug: 'impactsquare',
-      tags: [
-        { key: 'tag.uxIntern', color: 'teal' },
-        { key: 'chip.research', color: 'teal' },
-        { key: 'chip.product', color: 'green' }
+        { key: 'tag.businessPlanning', color: 'teal' },
+        { key: 'chip.product', color: 'green' },
+        { key: 'chip.research', color: 'amber' }
       ]
     },
     brand: {
@@ -55,6 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var workProjectChips = document.getElementById('workProjectChips');
   var workDetailLink = document.getElementById('workDetailLink');
   var screens = [screenMain, screenPhone1, screenPhone2].filter(Boolean);
+
+  function resolveProjectKey(key) {
+    if (key === 'impactsquare') return 'strawberryfields';
+    return key;
+  }
 
   function renderProjectChips(project) {
     if (!workProjectChips || !project.tags) return;
@@ -90,12 +95,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function switchProject(key) {
+    key = resolveProjectKey(key);
     var project = PROJECTS[key];
     if (!project) return;
     activeProjectKey = key;
 
     document.querySelectorAll('.project-row').forEach(function (row) {
-      row.classList.toggle('is-active', row.getAttribute('data-project') === key);
+      var rowKey = resolveProjectKey(row.getAttribute('data-project'));
+      row.classList.toggle('is-active', rowKey === key);
     });
 
     if (workDetailLink) workDetailLink.href = 'project-detail.html?project=' + project.slug;

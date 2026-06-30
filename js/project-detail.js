@@ -1,51 +1,59 @@
 (function () {
   var PROJECTS = {
-    pairchive: {
+    muda: {
       index: '01',
+      title: 'MUDA',
+      subtitle: 'AI 음악 추천 일기앱<br>일기에 배경음악을 입히다',
+      role: 'Product Owner (PO)',
+      period: '2024',
+      tools: 'Figma, Product Planning, Tumblbug',
+      link: 'https://tumblbug.com/musicdiary',
+      linkLabel: 'Tumblbug',
+      heroBg: 'linear-gradient(160deg, #FDF9F6, #EADAD2)',
+      cover: 'assets/projects/muda-cover.png',
+      points: [
+        'PO로서 서비스 기획, UX/UI 방향, 크라우드펀딩 전략을 총괄했습니다.',
+        '일기 작성과 AI 음악 추천을 연결하는 핵심 경험을 설계했습니다.',
+        '텀블벅 펀딩 266% 달성 — 62명 후원, 130만 원+ 모금 (Team GLOW).'
+      ],
+      prev: null,
+      next: 'pairchive'
+    },
+    pairchive: {
+      index: '02',
       title: 'Pairchive',
       subtitle: '둘이서 한 달간 링크를 모아<br>하나의 책을 완성하는 페어링 서비스',
       role: 'Founder / Designer',
       period: '2026',
       tools: 'Figma, HTML/CSS/JS',
       heroBg: 'linear-gradient(160deg, #6EC4E8, #4AABD4)',
+      cover: 'assets/projects/pairchive-cover.png',
+      coverFallback: 'assets/projects/pairchive-logo.svg',
       points: [
-        '최대 3개 동시 진행 + 1개월 자동 완성 규칙으로 페어 간 몰입을 설계했습니다.',
+        'Figma에서 로고·UI·디자인 시스템을 설계하고 프로토타입을 제작했습니다.',
         '1F 진행 중 / 2F 보관함의 책장 메타포로 직관적인 정보구조를 만들었습니다.',
-        'User ↔ Pair ↔ User 구조로 SNS형 소셜그래프와 차별화했습니다.'
-      ],
-      prev: null,
-      next: 'muda'
-    },
-    muda: {
-      index: '02',
-      title: 'MUDA',
-      subtitle: '감정을 기록하고 돌아보는<br>다이어리 앱',
-      role: 'Product Designer',
-      period: '2025',
-      tools: 'Figma, Prototyping',
-      heroBg: 'linear-gradient(160deg, #FDF9F6, #EADAD2)',
-      points: [
-        '감정 이모지 기반의 직관적인 다이어리 입력 UX를 설계했습니다.',
-        '월간/연간 감정 트래킹 대시보드를 디자인했습니다.',
-        '텀블벅 크라우드펀딩 266% 달성에 기여했습니다.'
-      ],
-      prev: 'pairchive',
-      next: 'impactsquare'
-    },
-    impactsquare: {
-      index: '03',
-      title: 'ImpactSquare',
-      subtitle: '영주 딸기밭 프로젝트<br>현장 리서치 & UX',
-      role: 'UX Intern',
-      period: '2024',
-      tools: 'Figma, Field Research',
-      heroBg: 'linear-gradient(160deg, #F0F7F0, #95D5B2)',
-      points: [
-        '현장 인터뷰와 관찰 리서치를 통해 사용자 니즈를 파악했습니다.',
-        '농가-소비자 연결 서비스의 UX 플로우를 설계했습니다.',
-        '리서치 결과를 기반으로 와이어프레임과 프로토타입을 제작했습니다.'
+        '기획부터 UI/UX 디자인, 프론트엔드 구현까지 전 과정을 담당했습니다.'
       ],
       prev: 'muda',
+      next: 'strawberryfields'
+    },
+    strawberryfields: {
+      index: '03',
+      title: 'Strawberry Fields',
+      subtitle: '영주 STAXX 편집숍<br>100일간 8개 로컬 브랜드 큐레이션',
+      role: 'Business Planning & Operations',
+      period: '2025',
+      tools: 'Service Planning, Brand Curation, Operations',
+      link: 'https://www.staxx.co.kr/strawberryfields',
+      linkLabel: 'STAXX',
+      heroBg: 'linear-gradient(160deg, #FFF5F5, #E8A0A8)',
+      cover: 'assets/projects/strawberryfields-cover.png',
+      points: [
+        '경북 영주 STAXX 1층에서 100일간 운영된 편집숍 프로젝트입니다.',
+        '사업 기획부터 입점 브랜드 큐레이션, 프로그램·매장 운영까지 전담했습니다.',
+        '공예·F&B·도서 등 8개 로컬 브랜드의 팝업·클래스·체험 프로그램을 기획·운영했습니다.'
+      ],
+      prev: 'pairchive',
       next: 'brand'
     },
     brand: {
@@ -61,17 +69,17 @@
         '다양한 매체에 적용 가능한 비주얼 시스템을 설계했습니다.',
         '브랜드 톤앤매너에 맞는 그래픽 에셋을 제작했습니다.'
       ],
-      prev: 'impactsquare',
+      prev: 'strawberryfields',
       next: null
     }
   };
 
-  var ORDER = ['pairchive', 'muda', 'impactsquare', 'brand'];
-
   function getProjectKey() {
     var params = new URLSearchParams(window.location.search);
     var key = params.get('project');
-    return PROJECTS[key] ? key : 'pairchive';
+    if (PROJECTS[key]) return key;
+    if (key === 'impactsquare') return 'strawberryfields';
+    return 'muda';
   }
 
   function render() {
@@ -86,10 +94,39 @@
     var hero = document.getElementById('detailHero');
     hero.style.background = data.heroBg;
 
-    document.getElementById('detailMeta').innerHTML =
+    var coverEl = document.getElementById('detailCover');
+    var placeholder = document.getElementById('detailHeroPlaceholder');
+    var cta = document.getElementById('detailCta');
+
+    if (coverEl && data.cover) {
+      coverEl.innerHTML = '<img src="' + data.cover + '" alt="' + data.title + ' project cover" onerror="this.src=\'' + (data.coverFallback || '') + '\'">';
+      coverEl.hidden = false;
+      if (placeholder) placeholder.hidden = true;
+    } else if (coverEl) {
+      coverEl.hidden = true;
+      if (placeholder) placeholder.hidden = false;
+    }
+
+    if (cta) {
+      if (data.link) {
+        cta.href = data.link;
+        cta.querySelector('span').textContent = 'View ' + data.linkLabel;
+        cta.hidden = false;
+      } else {
+        cta.hidden = true;
+      }
+    }
+
+    var metaHtml =
       '<div class="detail-meta-row"><span class="meta-label">Role</span><span class="meta-value">' + data.role + '</span></div>' +
       '<div class="detail-meta-row"><span class="meta-label">Period</span><span class="meta-value">' + data.period + '</span></div>' +
       '<div class="detail-meta-row"><span class="meta-label">Tools</span><span class="meta-value">' + data.tools + '</span></div>';
+
+    if (data.link) {
+      metaHtml += '<div class="detail-meta-row"><span class="meta-label">Link</span><span class="meta-value"><a href="' + data.link + '" target="_blank" rel="noopener">' + data.linkLabel + ' ↗</a></span></div>';
+    }
+
+    document.getElementById('detailMeta').innerHTML = metaHtml;
 
     document.getElementById('detailPoints').innerHTML = data.points
       .map(function (p) { return '<li>' + p + '</li>'; })
