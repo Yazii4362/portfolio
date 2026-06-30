@@ -167,6 +167,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.detail-cover {
+  position: absolute;
+  inset: 0;
+}
+
+.detail-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.detail-image-main:has(.detail-cover:not([hidden])) .placeholder-label {
+  display: none;
+}
+
+.meta-value a {
+  color: var(--black);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.meta-value a:hover {
+  border-color: var(--orange);
+  color: var(--orange);
 }
 
 .placeholder-label {
@@ -183,6 +211,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.detail-image-sm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .detail-image-sm .placeholder-label {

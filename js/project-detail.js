@@ -40,18 +40,24 @@
     strawberryfields: {
       index: '03',
       title: 'Strawberry Fields',
-      subtitle: '영주 STAXX 편집숍<br>100일간 8개 로컬 브랜드 큐레이션',
+      subtitle: '영주 STAXX 1층 공실에서 시작한<br>100일 편집숍 실험',
       role: 'Business Planning & Operations',
-      period: '2025',
-      tools: 'Service Planning, Brand Curation, Operations',
+      period: '2025.06 – 2025.12',
+      tools: 'Brand Curation, Space Planning, Store Ops',
       link: 'https://www.staxx.co.kr/strawberryfields',
-      linkLabel: 'STAXX',
+      linkLabel: 'Project Page',
+      blogLink: 'https://staxx.tistory.com/269',
+      blogLabel: 'STAXX Blog',
       heroBg: 'linear-gradient(160deg, #FFF5F5, #E8A0A8)',
-      cover: 'assets/projects/strawberryfields-cover.png',
+      cover: 'assets/projects/strawberryfields-cover.jpg',
+      gallery: [
+        'assets/projects/strawberryfields-02.jpg',
+        'assets/projects/strawberryfields-03.jpg'
+      ],
       points: [
-        '경북 영주 STAXX 1층에서 100일간 운영된 편집숍 프로젝트입니다.',
-        '사업 기획부터 입점 브랜드 큐레이션, 프로그램·매장 운영까지 전담했습니다.',
-        '공예·F&B·도서 등 8개 로컬 브랜드의 팝업·클래스·체험 프로그램을 기획·운영했습니다.'
+        '6월 STAXX 합류 후 스트로베리 필드 프로젝트 기획·운영 전 과정을 전담했습니다.',
+        '영주·안동·대구·원주·서울 8개 로컬 브랜드 모집·선발, 공간·프로그램 기획 후 9/30 정식 오픈.',
+        '오픈 후 첫 달 방문 540명, 프로그램 9건·참여 45명 — POS·포장·매장 운영 이슈를 현장에서 해결.'
       ],
       prev: 'pairchive',
       next: 'brand'
@@ -110,7 +116,8 @@
     if (cta) {
       if (data.link) {
         cta.href = data.link;
-        cta.querySelector('span').textContent = 'View ' + data.linkLabel;
+        var ctaLabel = cta.querySelector('span:not(.link-arrow)');
+        if (ctaLabel) ctaLabel.textContent = 'View ' + data.linkLabel;
         cta.hidden = false;
       } else {
         cta.hidden = true;
@@ -126,7 +133,24 @@
       metaHtml += '<div class="detail-meta-row"><span class="meta-label">Link</span><span class="meta-value"><a href="' + data.link + '" target="_blank" rel="noopener">' + data.linkLabel + ' ↗</a></span></div>';
     }
 
+    if (data.blogLink) {
+      metaHtml += '<div class="detail-meta-row"><span class="meta-label">Story</span><span class="meta-value"><a href="' + data.blogLink + '" target="_blank" rel="noopener">' + data.blogLabel + ' ↗</a></span></div>';
+    }
+
     document.getElementById('detailMeta').innerHTML = metaHtml;
+
+    var galleryEl = document.getElementById('detailGallery');
+    if (galleryEl) {
+      if (data.gallery && data.gallery.length) {
+        galleryEl.innerHTML = data.gallery.map(function (src) {
+          return '<div class="detail-image-sm"><img src="' + src + '" alt="' + data.title + ' activity photo"></div>';
+        }).join('');
+        galleryEl.hidden = false;
+      } else {
+        galleryEl.innerHTML = '';
+        galleryEl.hidden = true;
+      }
+    }
 
     document.getElementById('detailPoints').innerHTML = data.points
       .map(function (p) { return '<li>' + p + '</li>'; })
