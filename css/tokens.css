@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --black: #111111;
+  --white: #FFFFFF;
+  --ink: #1A1A1A;
+
+  --sky: #52B4F5;
+  --sky-deep: #3A9EE8;
+  --sky-bright: #6EC5FF;
+  --orange: #FF5722;
+  --orange-soft: #FF7043;
+  --hero-red: #FF3A1F;
+  --hero-orange: #FF6A0A;
+  --hero-blue-top: #3D9AE8;
+  --hero-blue-mid: #52B8F5;
+  --hero-blue-light: #6EC8FF;
+
+  --gray-100: #F7F7F7;
+  --gray-200: #ECECEC;
+  --gray-400: #9E9E9E;
+  --gray-600: #5C5C5C;
+
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', 'Pretendard', -apple-system, sans-serif;
+
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 28px;
+  --r-pill: 999px;
+
+  --gap-sm: 16px;
+  --gap-md: 24px;
+  --gap-lg: 48px;
+  --gap-xl: 80px;
+  --gap-2xl: 120px;
+
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.25s;
+  --dur-base: 0.5s;
+
+  --page-max: 1080px;
+  --page-pad: clamp(24px, 5vw, 64px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}

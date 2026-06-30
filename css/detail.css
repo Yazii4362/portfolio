@@ -1,0 +1,227 @@
+/* ============================================
+   PROJECT DETAIL PAGE
+   ============================================ */
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px var(--page-pad);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.detail-back:hover {
+  color: var(--black);
+}
+
+.detail-logo {
+  color: var(--black) !important;
+  mix-blend-mode: normal !important;
+}
+
+.link-arrow-left {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.detail-main {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: var(--gap-xl);
+  padding: var(--gap-xl) var(--page-pad);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detail-left {
+  padding-top: var(--gap-md);
+}
+
+.detail-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.detail-title {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+
+.detail-subtitle {
+  font-size: 16px;
+  color: var(--gray-600);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.detail-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 24px;
+  border-radius: var(--r-pill);
+  margin-bottom: var(--gap-lg);
+}
+
+.detail-cta .link-arrow {
+  width: 28px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.detail-meta-list {
+  border-top: 1.5px solid var(--gray-200);
+  padding-top: 16px;
+  margin-bottom: var(--gap-lg);
+}
+
+.detail-meta-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 14px;
+}
+
+.meta-label {
+  font-weight: 700;
+  color: var(--gray-400);
+}
+
+.meta-value {
+  font-weight: 600;
+}
+
+.points-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 14px;
+}
+
+.points-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.points-list li {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--gray-600);
+  padding-left: 18px;
+  position: relative;
+}
+
+.points-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.detail-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.detail-image-main {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(160deg, var(--sky), var(--sky-deep));
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.detail-image-sm {
+  aspect-ratio: 1;
+  background: var(--gray-100);
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-image-sm .placeholder-label {
+  color: var(--gray-400);
+}
+
+.detail-image-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detail-prev-next {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1.5px solid var(--gray-200);
+  padding: var(--gap-md) var(--page-pad);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pn-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.pn-link .link-arrow {
+  width: 32px;
+  height: 32px;
+  background: var(--gray-100);
+  color: var(--black);
+}
+
+@media (max-width: 900px) {
+  .detail-main {
+    grid-template-columns: 1fr;
+    padding: var(--gap-md) var(--page-pad);
+  }
+}
