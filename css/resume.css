@@ -1,0 +1,329 @@
+/* ============================================
+   RESUME — dark minimal (ref. proHyundo.github.io/resume)
+   ============================================ */
+
+body.resume-page {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+.resume-top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px clamp(20px, 4vw, 48px);
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resume-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.2s ease;
+}
+
+.resume-back:hover {
+  color: #fff;
+}
+
+.resume-top-logo {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.resume-wrap {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 56px) clamp(20px, 4vw, 48px) 80px;
+  align-items: start;
+}
+
+.resume-card {
+  position: sticky;
+  top: 72px;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 28px 24px;
+}
+
+.resume-card-tagline {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.resume-card-name {
+  font-size: clamp(32px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.resume-card-role {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 28px;
+}
+
+.resume-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.resume-card-row {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.resume-card-label {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.resume-card-value {
+  color: rgba(255, 255, 255, 0.88);
+  word-break: break-all;
+}
+
+.resume-card-value a {
+  color: inherit;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.resume-card-value a:hover {
+  color: #fff;
+  border-color: var(--orange);
+}
+
+.resume-card-mark {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-card-mark span {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), #ff8a65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.resume-content {
+  min-width: 0;
+  padding-bottom: 40px;
+}
+
+.resume-intro {
+  font-size: clamp(15px, 1.8vw, 17px);
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 640px;
+  margin-bottom: clamp(40px, 6vh, 64px);
+  line-height: 1.75;
+}
+
+.resume-intro strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.resume-section {
+  margin-bottom: clamp(40px, 6vh, 56px);
+}
+
+.resume-section-title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.resume-entry {
+  margin-bottom: 40px;
+}
+
+.resume-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-entry-head {
+  margin-bottom: 12px;
+}
+
+.resume-entry-title {
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.resume-entry-meta {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+.resume-entry-meta strong {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 700;
+}
+
+.resume-subhead {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 20px 0 10px;
+}
+
+.resume-text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.75;
+}
+
+.resume-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  font-size: 14px;
+}
+
+.resume-links a {
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.resume-links a:hover {
+  border-color: var(--orange);
+  color: var(--orange-soft);
+}
+
+.resume-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.resume-list li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.resume-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.resume-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.resume-tags span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resume-award-img {
+  margin-top: 16px;
+  max-width: 360px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.resume-award-img img {
+  width: 100%;
+  display: block;
+}
+
+.resume-award-caption {
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 860px) {
+  .resume-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-card {
+    position: static;
+  }
+}
+
+@media print {
+  .resume-top {
+    position: static;
+    border: none;
+  }
+
+  .resume-page {
+    background: #fff;
+    color: #111;
+  }
+
+  .resume-card {
+    border-color: #ddd;
+    break-inside: avoid;
+  }
+
+  .resume-card-tagline,
+  .resume-card-role,
+  .resume-card-value,
+  .resume-intro,
+  .resume-text,
+  .resume-list {
+    color: #333;
+  }
+}

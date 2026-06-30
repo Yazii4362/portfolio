@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var LIST_ORDER = window.PROJECT_LIST_ORDER || Object.keys(REGISTRY);
   var ASSETS = window.PROJECT_ASSETS || {};
 
-  var activeProjectKey = LIST_ORDER[0] || 'pairchive';
+  var activeProjectKey = 'pairchive';
 
   var hasGsap = typeof gsap !== 'undefined';
   var EASE_IO = 'power2.inOut';
@@ -61,8 +61,22 @@ document.addEventListener('DOMContentLoaded', function () {
     );
   }
 
+  function bindProjectList() {
+    if (!projectList) return;
+
+    projectList.querySelectorAll('.project-row').forEach(function (row) {
+      row.addEventListener('mouseenter', function () {
+        switchProject(row.getAttribute('data-project'));
+      });
+    });
+  }
+
   function buildProjectList() {
     if (!projectList) return;
+    if (projectList.querySelector('.project-row')) {
+      bindProjectList();
+      return;
+    }
 
     projectList.innerHTML = LIST_ORDER.map(function (key) {
       var project = REGISTRY[key];
@@ -91,11 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    projectList.querySelectorAll('.project-row').forEach(function (row) {
-      row.addEventListener('mouseenter', function () {
-        switchProject(row.getAttribute('data-project'));
-      });
-    });
+    bindProjectList();
   }
 
   function renderProjectChips(project) {

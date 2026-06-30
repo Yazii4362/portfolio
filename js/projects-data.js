@@ -7,11 +7,11 @@ window.PROJECT_ORDER = [
 ];
 
 window.PROJECT_LIST_ORDER = [
-  'pairchive',
-  'strawberryfields',
-  'muda',
+  'brand',
   'babpool',
-  'brand'
+  'muda',
+  'strawberryfields',
+  'pairchive'
 ];
 
 window.PROJECT_ASSETS = {
@@ -25,7 +25,8 @@ window.PROJECT_ASSETS = {
     ],
     gallery: [
       'assets/projects/babpool-mobile.svg',
-      'assets/projects/babpool-match.svg'
+      'assets/projects/babpool-match.svg',
+      'assets/projects/babpool-award.png'
     ]
   },
   muda: {
@@ -128,7 +129,7 @@ window.PROJECT_REGISTRY = {
   },
   babpool: {
     name: 'Babpool',
-    listName: 'babpool',
+    listName: '밥풀 babpool',
     year: '2024',
     descKey: 'work.babpool',
     rowTag: { key: 'tag.swypWinner', color: 'amber' },

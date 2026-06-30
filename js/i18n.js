@@ -43,10 +43,10 @@
       'work.pairchive': '둘이서 한 달간 링크를 모아 책을 완성하는 페어링 웹 서비스. Figma 로고·UI 설계부터 프론트엔드 구현까지 전 과정을 담당했습니다.',
       'work.strawberryfields': '영주 STAXX 1층 100일 편집숍. 8개 로컬 브랜드 큐레이션·매장·프로그램 운영 등 프로젝트 전반을 전담 — 첫 달 방문 540명.',
       'work.impactsquare': '영주 STAXX 1층 100일 편집숍. 8개 로컬 브랜드 큐레이션·매장·프로그램 운영 등 프로젝트 전반을 전담 — 첫 달 방문 540명.',
-      'work.babpool': '밥 약속으로 관심사·목표가 맞는 사람을 연결하는 네트워킹 플랫폼. SWYP 3기 프로젝트로 MVP 출시 후 **1위 수상**.',
+      'work.babpool': '밥 약속으로 관심사·목표가 맞는 사람을 연결하는 네트워킹 플랫폼. SWYP 3기 프로젝트로 MVP 출시 후 1위 수상.',
       'work.brand': '다양한 브랜드 아이덴티티 및 그래픽 디자인 프로젝트. 로고, 타이포그래피, 비주얼 시스템을 설계했습니다.',
       'contact.headline': '함께 만들어요<span class="dot">.</span>',
-      'contact.resume': 'Resume',
+      'contact.resume': '이력서',
       'contact.copyright': '© 2026 YAZII — Im Ye-ji. All rights reserved.'
     },
     en: {
@@ -90,7 +90,7 @@
       'work.pairchive': 'Pairing web service that turns monthly links into a book. Logo and UI in Figma, plus front-end implementation.',
       'work.strawberryfields': '100-day edit shop at STAXX Yeongju — led brand curation, store ops, and programs end-to-end. 540 visitors in the first month.',
       'work.impactsquare': '100-day edit shop at STAXX Yeongju — led brand curation, store ops, and programs end-to-end. 540 visitors in the first month.',
-      'work.babpool': 'Networking platform matching people over meals by interests and goals. SWYP 3rd cohort — shipped MVP and won **1st place**.',
+      'work.babpool': 'Networking platform matching people over meals by interests and goals. SWYP 3rd cohort — shipped MVP and won 1st place.',
       'work.brand': 'Brand identity and graphic design—logo, typography, and visual systems.',
       'contact.headline': "Let's build together<span class=\"dot\">.</span>",
       'contact.resume': 'Resume',
