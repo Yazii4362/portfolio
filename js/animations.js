@@ -80,6 +80,7 @@
   function initBatches() {
     var batches = [
       { sel: '.box-card', y: 32, stagger: 0.06 },
+      { sel: '.stack-item', y: 12, stagger: 0.04 },
       { sel: '.project-row', y: 16, stagger: 0.07 }
     ];
 
