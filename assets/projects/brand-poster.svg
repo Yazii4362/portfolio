@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none" aria-hidden="true">
+  <rect width="800" height="560" fill="#1A1A1A"/>
+  <rect x="60" y="60" width="320" height="440" rx="8" fill="#FF7043"/>
+  <text x="220" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="48" font-weight="900" fill="#fff">POSTER</text>
+  <text x="220" y="350" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" font-weight="500" fill="rgba(255,255,255,0.8)">Event Visual</text>
+  <rect x="420" y="80" width="320" height="140" rx="8" fill="#fff"/>
+  <rect x="420" y="240" width="320" height="140" rx="8" fill="#FFB74D"/>
+  <rect x="420" y="400" width="320" height="100" rx="8" fill="#FFF5F0"/>
+  <text x="580" y="155" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">Typography</text>
+  <text x="580" y="315" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">Color Block</text>
+  <text x="580" y="455" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">Layout Grid</text>
+</svg>

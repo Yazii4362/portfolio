@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none" aria-hidden="true">
+  <rect width="800" height="560" fill="#FFF5F0"/>
+  <circle cx="400" cy="220" r="96" fill="#FF7043"/>
+  <text x="400" y="238" text-anchor="middle" font-family="Georgia,serif" font-size="72" font-weight="700" fill="#fff">Y</text>
+  <text x="400" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="800" fill="#1A1A1A">Brand Mark</text>
+  <text x="400" y="395" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#888">Logo · Color · Typography</text>
+  <rect x="280" y="430" width="80" height="24" rx="12" fill="#FF7043"/>
+  <rect x="380" y="430" width="80" height="24" rx="12" fill="#FFB74D"/>
+  <rect x="480" y="430" width="80" height="24" rx="12" fill="#1A1A1A"/>
+</svg>
