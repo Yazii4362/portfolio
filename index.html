@@ -1,622 +1,531 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#FF7D59">
-  <title>YAZII — UX/UI 디자이너 &amp; 프론트엔드</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/gnb.css">
-  <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/about.css">
-  <link rel="stylesheet" href="css/field-notes.css">
-  <link rel="stylesheet" href="css/work.css">
-  <link rel="stylesheet" href="css/contact.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>임예지 — Think fast, Build Faster</title>
+<script>document.documentElement.classList.replace('no-js','js');</script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 
-<div id="scroll-container" data-scroll-container>
+<header class="site-header" id="siteHeader">
+  <div class="gnb-brand-pill">
+    <a href="#hero" class="gnb-logo" aria-label="YAZII home">
+      <span class="gnb-logo-mark" aria-hidden="true">✳</span>
+      YAZII
+    </a>
+    <button type="button" class="gnb-menu-btn" id="gnbMenuBtn" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnbPanel">
+      <span class="gnb-menu-line"></span>
+      <span class="gnb-menu-line"></span>
+    </button>
+  </div>
 
-<!-- ======= 01 HERO ======= -->
-<section id="hero" class="section hero" data-scroll-section>
+  <nav class="gnb-links" aria-label="주요 섹션">
+    <a href="#about" class="gnb-link" data-section="about" data-i18n="nav.about">About</a>
+    <a href="#career" class="gnb-link" data-section="career" data-i18n="nav.career">Career</a>
+    <a href="#stack" class="gnb-link" data-section="stack" data-i18n="nav.stack">Stack</a>
+    <a href="#work" class="gnb-link" data-section="work" data-i18n="nav.work">Work</a>
+    <a href="#contact" class="gnb-link" data-section="contact" data-i18n="nav.contact">Contact</a>
+  </nav>
 
-  <div class="hero__topbar-spacer" id="heroTopbarSpacer" aria-hidden="true"></div>
+  <div class="gnb-lang-toggle" role="group" aria-label="Language">
+    <button type="button" class="gnb-lang-btn is-active" data-lang="ko" aria-pressed="true">KO</button>
+    <button type="button" class="gnb-lang-btn" data-lang="en" aria-pressed="false">EN</button>
+  </div>
 
-  <header class="hero__topbar" id="heroTopbar">
-    <a href="#hero" class="hero__logo" aria-label="YAZII 홈">YAZII</a>
+  <nav class="gnb-panel" id="gnbPanel" aria-label="모바일 메뉴" hidden>
+    <a href="#about" class="gnb-panel-link" data-section="about" data-i18n="nav.about">About</a>
+    <a href="#career" class="gnb-panel-link" data-section="career" data-i18n="nav.career">Career</a>
+    <a href="#stack" class="gnb-panel-link" data-section="stack" data-i18n="nav.stack">Stack</a>
+    <a href="#work" class="gnb-panel-link" data-section="work" data-i18n="nav.work">Work</a>
+    <a href="#contact" class="gnb-panel-link" data-section="contact" data-i18n="nav.contact">Contact</a>
+    <div class="gnb-panel-lang" role="group" aria-label="Language">
+      <button type="button" class="gnb-lang-btn is-active" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" class="gnb-lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </nav>
+</header>
 
-    <div class="gnb-wrap" id="gnbWrap">
-      <div class="gnb" id="gnb" role="banner">
-        <div class="gnb__bar">
-          <button class="gnb__input-row" id="gnbBtn" aria-expanded="false" aria-controls="gnbPanel" aria-label="네비게이션 메뉴">
-            <svg class="gnb__search-ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2"/>
-              <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-            <span class="gnb__text" id="gnbText">어디로 갈까요?</span>
-          </button>
-          <div class="gnb__panel" id="gnbPanel" role="navigation" aria-label="섹션 내비게이션">
-            <ul class="gnb__nav" role="list">
-              <li role="listitem">
-                <a href="#hero" class="gnb__nav-item" data-label="홈">
-                  <span class="gnb__nav-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="#FF7D59"/></svg>
-                  </span>
-                  <span class="gnb__nav-label">홈</span>
-                </a>
-              </li>
-              <li role="listitem">
-                <a href="#about" class="gnb__nav-item" data-label="ABOUT">
-                  <span class="gnb__nav-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="#FF7D59" stroke-width="1.8"/><path d="M4 20c0-3.31 3.58-6 8-6s8 2.69 8 6" stroke="#FF7D59" stroke-width="1.8" stroke-linecap="round"/></svg>
-                  </span>
-                  <span class="gnb__nav-label">ABOUT</span>
-                </a>
-              </li>
-              <li role="listitem">
-                <a href="#field-notes" class="gnb__nav-item" data-label="필드노트">
-                  <span class="gnb__nav-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2" stroke="#FF7D59" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" stroke="#FF7D59" stroke-width="1.8" stroke-linecap="round"/></svg>
-                  </span>
-                  <span class="gnb__nav-label">필드노트</span>
-                </a>
-              </li>
-              <li role="listitem">
-                <a href="#work" class="gnb__nav-item" data-label="PROJECT">
-                  <span class="gnb__nav-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#FF7D59" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#FF7D59" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#FF7D59" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="#FF7D59" stroke-width="1.8"/></svg>
-                  </span>
-                  <span class="gnb__nav-label">PROJECT</span>
-                </a>
-              </li>
-              <li role="listitem">
-                <a href="#contact" class="gnb__nav-item" data-label="CONTACT">
-                  <span class="gnb__nav-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H4z" stroke="#FF7D59" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 4l8 8 8-8" stroke="#FF7D59" stroke-width="1.8" stroke-linecap="round"/></svg>
-                  </span>
-                  <span class="gnb__nav-label">CONTACT</span>
-                </a>
-              </li>
+<main class="page">
+
+  <!-- HERO -->
+  <section class="section hero-section" id="hero">
+    <div class="hero-inner section-inner">
+      <h1 class="hero-headline" data-i18n-html="hero.headline">
+        Think fast,<br>
+        <em>Build Faster</em>
+      </h1>
+      <p class="hero-tagline" data-i18n="hero.tagline">빠르게 생각하고 빠르게 검증하는 디자이너 임예지입니다.</p>
+      <p class="hero-sub" data-i18n-html="hero.sub">
+        AI를 워크플로우에 녹여 Figma 설계부터 코드 구현까지, 아이디어를 빠르게 결과물로 만듭니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">About</h2>
+      </div>
+      <p class="section-lead" data-i18n="about.lead">생각은 빠르게, 실행은 더 빠르게.</p>
+      <div class="chip-row chip-row--about">
+        <span class="cat-chip cat-chip--slate">
+          <svg class="cat-chip-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span data-i18n="chip.uiux">UI/UX</span>
+        </span>
+        <span class="cat-chip cat-chip--purple">
+          <svg class="cat-chip-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v3M8 10.5v3M2.5 8h3M10.5 8h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span data-i18n="chip.ai">AI</span>
+        </span>
+        <span class="cat-chip cat-chip--green">
+          <svg class="cat-chip-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 5h10v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5z" stroke="currentColor" stroke-width="1.3"/><path d="M3 5l5-3 5 3" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <span data-i18n="chip.product">프로덕트</span>
+        </span>
+        <span class="cat-chip cat-chip--violet">
+          <svg class="cat-chip-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="2.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="2.5" y="9" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M11.25 9v4.5M9 11.25h4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span data-i18n="chip.designSystem">디자인 시스템</span>
+        </span>
+      </div>
+      <div class="about-grid">
+        <p class="about-body" data-i18n="about.body">
+          맥락을 빠르게 읽고, AI로 아이디어를 즉시 시각화합니다.
+          Figma로 설계하고 HTML/CSS/JS로 직접 구현해
+          기획·디자인·퍼블리싱 사이클을 짧게 돌립니다.
+          완벽을 기다리기보다 빠르게 만들고, 빠르게 개선하는 디자이너입니다.
+        </p>
+        <dl class="about-profile">
+          <div class="profile-row">
+            <dt class="profile-label">Birth</dt>
+            <dd class="profile-value">1999. 07. 12</dd>
+          </div>
+          <div class="profile-row">
+            <dt class="profile-label">Education</dt>
+            <dd class="profile-value" data-i18n="about.education">서울시립대학교 도시행정학과 졸업</dd>
+          </div>
+          <div class="profile-row">
+            <dt class="profile-label">Contact</dt>
+            <dd class="profile-value"><a href="mailto:hello@yazii.com">hello@yazii.com</a></dd>
+          </div>
+          <div class="profile-row">
+            <dt class="profile-label">Location</dt>
+            <dd class="profile-value">Seoul, Korea</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER -->
+  <section class="section" id="career">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Career</h2>
+      </div>
+
+      <div class="career-block">
+        <h3 class="block-label" data-i18n="career.educationAwards">education &amp; awards</h3>
+        <div class="box-grid">
+          <article class="box-card">
+            <div class="box-card-icon box-card-icon--edu" aria-hidden="true">🎓</div>
+            <h4 class="box-card-title">education</h4>
+            <ul class="box-card-list">
+              <li><span class="box-card-date">2024.02</span> 서울시립대학교 도시행정학과 졸업</li>
+              <li><span class="box-card-date">2024.03</span> SeSAC 데이터 드리븐 서비스 기획 체인저스 5기</li>
+              <li><span class="box-card-date">2022.10</span> 인공지능서비스 기획 과정 수료</li>
+              <li><span class="box-card-date">2018.03</span> 서울시립대학교 자유전공학부 입학</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero__top-avatar" aria-hidden="true"><span>Y</span></div>
-  </header>
-
-  <div class="hero__map" aria-hidden="true">
-    <img class="hero__map-img" src="assets/hero-seoul-forest-map.svg" alt="" width="960" height="720" decoding="async">
-  </div>
-
-  <div class="hero__scene" id="heroScene">
-    <div class="hero__bubble" id="heroBubble">YAZII를 찾았다!</div>
-    <span class="hero__spark" aria-hidden="true">✦</span>
-    <div class="hero__character" id="heroCharacter" aria-hidden="true">
-      <svg viewBox="0 0 80 120" width="80" height="120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="40" cy="108" rx="28" ry="8" fill="rgba(44,44,52,0.12)"/>
-        <circle cx="40" cy="98" r="22" fill="#99B0ED" stroke="#fff" stroke-width="3"/>
-        <circle cx="40" cy="98" r="8" fill="rgba(255,255,255,0.9)"/>
-        <rect x="28" y="52" width="24" height="32" rx="10" fill="#FFBDE8"/>
-        <circle cx="40" cy="38" r="14" fill="#FFEDEA"/>
-        <rect x="26" y="78" width="10" height="22" rx="5" fill="#9AA0A6"/>
-        <rect x="44" y="78" width="10" height="22" rx="5" fill="#9AA0A6"/>
-      </svg>
-    </div>
-    <span class="hero__bird" aria-hidden="true">🐦</span>
-  </div>
-
-  <div class="hero__dock">
-    <div class="hero__dock-card">
-      <div class="hero__dock-icon" aria-hidden="true">Y</div>
-      <div class="hero__dock-text">
-        <strong class="hero__dock-title">YAZII · UI/UX 디자이너</strong>
-        <span class="hero__dock-sub">서울 · 로컬 관심 · 신입 지원 중</span>
-      </div>
-      <button type="button" class="hero__dock-cta" id="heroDirectionsBtn" aria-label="길찾기" aria-controls="aboutSheet" aria-expanded="false">길찾기</button>
-    </div>
-    <button type="button" class="hero__locate-btn" id="heroLocateBtn" aria-label="현재 위치로">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="3" fill="#99B0ED"/>
-        <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#99B0ED" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </div>
-
-  <h1 class="visually-hidden">YAZII — UI/UX 디자이너 &amp; 프론트엔드</h1>
-
-</section>
-
-<!-- ======= 02 ABOUT ======= -->
-<section id="about" class="section about" data-scroll-section>
-
-  <div class="about__header">
-    <span class="about__sec-num">02</span>
-    <h2 class="about__sec-title">ABOUT</h2>
-  </div>
-
-  <article class="about__place" aria-label="YAZII 프로필 Place Details">
-
-    <!-- 사진 갤러리 -->
-    <div class="about__photos">
-      <div class="about__photos-head">
-        <span class="about__photos-label">사진</span>
-        <button type="button" class="about__photos-next" id="aboutPhotosNext" aria-label="다음 사진">Next &gt;</button>
-      </div>
-      <div class="about__photos-track" id="aboutPhotosTrack">
-        <div class="about__photo about__photo--pink" aria-hidden="true"></div>
-        <div class="about__photo about__photo--gray" aria-hidden="true"></div>
-        <div class="about__photo about__photo--green" aria-hidden="true"></div>
-      </div>
-    </div>
-
-    <!-- 장소 헤더 -->
-    <div class="about__place-head">
-      <div class="about__place-info">
-        <h3 class="about__place-name">YAZII <span class="about__place-name-ko">(임예지)</span></h3>
-        <p class="about__place-meta">UI/UX 디자이너 · 서울 · 로컬·관광 관심 · 신입 지원 중</p>
-      </div>
-      <div class="about__place-icons">
-        <button type="button" class="about__bookmark" id="aboutBookmark" aria-label="저장" aria-pressed="false">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="about__avatar" aria-hidden="true">Y</div>
-      </div>
-    </div>
-
-    <!-- 액션 칩 -->
-    <div class="about__actions" role="group" aria-label="빠른 액션">
-      <a href="#field-notes" class="about__action about__action--primary">경로 보기</a>
-      <button type="button" class="about__action about__action--outline" id="aboutSaveBtn">저장</button>
-      <a href="mailto:image4362@gmail.com" class="about__action about__action--outline">공유</a>
-      <a href="/resume.pdf" class="about__action about__action--outline" download>레쥬메 →</a>
-    </div>
-
-    <hr class="about__divider" aria-hidden="true">
-
-    <!-- 상세 정보 + 미니맵 -->
-    <div class="about__details">
-      <ul class="about__detail-list">
-        <li class="about__detail-item">
-          <span class="about__detail-ico about__detail-ico--pin" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#EA4335"/></svg>
-          </span>
-          <span class="about__detail-text">도시행정 전공 → 지역·관광 기획</span>
-        </li>
-        <li class="about__detail-item">
-          <span class="about__detail-ico" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#5F6368" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="#5F6368" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </span>
-          <span class="about__detail-text">현장에서 만드는 디자이너 · 기록광</span>
-        </li>
-        <li class="about__detail-item about__detail-item--tools">
-          <span class="about__detail-ico" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="#5F6368" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="#5F6368" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </span>
-          <div class="about__tools-wrap">
-            <span class="about__detail-text about__detail-text--label">다루는 툴</span>
-            <div class="about__tool-icons" aria-label="사용 도구">
-              <span class="about__tool-icon" title="Figma"><img src="https://www.figma.com/favicon.ico" alt="" width="16" height="16" loading="lazy"></span>
-              <span class="about__tool-icon" title="HTML">&lt;/&gt;</span>
-              <span class="about__tool-icon" title="GSAP">Gs</span>
-              <span class="about__tool-icon" title="Cursor"><img src="https://www.cursor.com/favicon.ico" alt="" width="16" height="16" loading="lazy"></span>
+          </article>
+          <article class="box-card">
+            <div class="box-card-icon box-card-icon--award" aria-hidden="true">🏆</div>
+            <h4 class="box-card-title">awards</h4>
+            <ul class="box-card-list">
+              <li><span class="box-card-date">2022.11</span> 대한민국플로깅코스공모전 최우수상</li>
+              <li><span class="box-card-date">2020.10</span> Urban Map&amp;Archiving 분석 부문 은상</li>
+            </ul>
+          </article>
+          <article class="box-card box-card--dark">
+            <h4 class="box-card-title">서울시립대 도시행정학과</h4>
+            <p class="box-card-desc" data-i18n="career.cardDesc">빠른 사고와 AI 활용으로 기획·디자인·구현 사이클을 단축하며, UI/UX 디자이너로 성장 중입니다.</p>
+            <div class="chip-row chip-row--card">
+              <span class="cat-chip cat-chip--sm cat-chip--teal" data-i18n="chip.urban">도시·공공</span>
+              <span class="cat-chip cat-chip--sm cat-chip--green" data-i18n="chip.product">프로덕트</span>
+              <span class="cat-chip cat-chip--sm cat-chip--navy" data-i18n="chip.frontend">Frontend</span>
             </div>
-            <span class="about__tools-list">Figma · HTML · GSAP · Cursor</span>
-          </div>
-        </li>
-      </ul>
-
-      <div class="about__mini-map" aria-hidden="true">
-        <svg viewBox="0 0 120 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
-          <rect width="120" height="100" fill="#E4F3E6"/>
-          <path d="M-10 55 Q40 48 80 52 Q110 55 130 50" stroke="#CDDBF9" stroke-width="8" fill="none" stroke-linecap="round"/>
-          <path d="M20 20 L100 80" stroke="#fff" stroke-width="4" opacity="0.9"/>
-          <circle cx="72" cy="58" r="6" fill="#EA4335"/>
-          <path d="M72 52c-4.4 0-8 3.6-8 8 0 6 8 14 8 14s8-8 8-14c0-4.4-3.6-8-8-8z" fill="#EA4335" transform="translate(0,-6) scale(0.55)" transform-origin="72 58"/>
-        </svg>
+            <a href="#contact" class="box-card-btn" data-i18n="career.letsTalk">let's talk</a>
+          </article>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- 연락처 (접힌 정보) -->
-    <div class="about__contact-bar">
-      <a href="mailto:image4362@gmail.com" class="about__contact-link">image4362@gmail.com</a>
-      <a href="https://github.com/Yazii4362" class="about__contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-
-  </article>
-
-</section>
-
-<!-- ======= 03 FIELD NOTES ======= -->
-<section id="field-notes" class="section field-notes" data-scroll-section>
-
-  <div class="fn__header">
-    <span class="fn__sec-num">03</span>
-    <h2 class="fn__sec-title">필드노트</h2>
-  </div>
-
-  <div class="fn__canvas" aria-label="한국 지도 위 필드 노트">
-
-    <!-- 한국 지도 SVG (인천-서울-경상북도 영주 구간) -->
-    <svg class="fn__korea-map" viewBox="0 0 800 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- 바다 배경 -->
-      <rect width="800" height="640" fill="#FFFAED"/>
-      <!-- 한국 본토 실루엣 (단순화) -->
-      <path d="M 200 80 L 240 60 L 300 55 L 360 65 L 420 60 L 470 80 L 500 100
-               L 520 130 L 530 160 L 540 200 L 545 240 L 530 280 L 510 320
-               L 490 360 L 460 400 L 420 440 L 380 470 L 350 500 L 320 520
-               L 290 530 L 260 520 L 240 500 L 220 470 L 200 440
-               L 185 400 L 175 360 L 170 320 L 165 280 L 165 240
-               L 170 200 L 175 160 L 185 130 L 200 100 Z"
-            fill="#D1D161" stroke="#FFFFFF" stroke-width="2"/>
-      <!-- 도로/고속도로 -->
-      <line x1="280" y1="180" x2="420" y2="380" stroke="#FFFFFF" stroke-width="3" opacity="0.8"/>
-      <line x1="200" y1="220" x2="500" y2="220" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
-      <line x1="340" y1="100" x2="340" y2="520" stroke="#FFFFFF" stroke-width="2" opacity="0.5"/>
-      <!-- 노란 도로 -->
-      <line x1="280" y1="180" x2="420" y2="380" stroke="#FFDE94" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.7"/>
-      <!-- 강 (한강) -->
-      <path d="M 200 200 Q 280 190 340 195 Q 400 200 460 205 Q 500 208 530 200"
-            stroke="#CDDBF9" stroke-width="6" fill="none" stroke-linecap="round"/>
-      <!-- 서해 -->
-      <rect x="0" y="0" width="175" height="640" fill="#CDDBF9" opacity="0.45" rx="0"/>
-      <!-- 남해 -->
-      <path d="M 260 530 Q 320 560 380 570 Q 440 560 500 530 L 500 640 L 260 640 Z"
-            fill="#CDDBF9" opacity="0.45"/>
-      <!-- 인천 도시 블록 -->
-      <rect x="195" y="190" width="28" height="20" fill="#FFE5E0" stroke="#FAAB94" stroke-width="1" rx="2"/>
-      <rect x="210" y="215" width="20" height="15" fill="#FFE5E0" stroke="#FAAB94" stroke-width="1" rx="2"/>
-      <!-- 서울 도시 블록 -->
-      <rect x="295" y="178" width="36" height="28" fill="#FFE5E0" stroke="#FAAB94" stroke-width="1" rx="2"/>
-      <rect x="315" y="165" width="24" height="20" fill="#FFE5E0" stroke="#FAAB94" stroke-width="1" rx="2"/>
-      <rect x="280" y="195" width="20" height="18" fill="#FFE5E0" stroke="#FAAB94" stroke-width="1" rx="2"/>
-      <!-- 경상북도 영주 -->
-      <rect x="405" y="338" width="22" height="16" fill="#FFE5E0" stroke="#FAAB94" stroke-width="1" rx="2"/>
-    </svg>
-
-    <div class="fn__grid" aria-hidden="true"></div>
-
-    <!-- 도시 레이블 -->
-    <span class="fn__city-label" style="top:30%;left:25%">인천</span>
-    <span class="fn__city-label" style="top:28%;left:38%">서울</span>
-    <span class="fn__city-label" style="top:54%;left:54%">경상북도</span>
-    <span class="fn__city-label" style="top:59%;left:57%">영주</span>
-
-    <!-- 경로 점선 -->
-    <svg class="fn__route" viewBox="0 0 800 640" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M 230 200 L 315 190 L 380 250 L 420 310 L 420 350"
-            stroke="#FF7D59" stroke-width="2.5" stroke-dasharray="8 5" fill="none" opacity="0.6"/>
-    </svg>
-
-    <!-- 핀 카드 1 — 관찰 (인천) -->
-    <div class="fn-pin fn-pin--1">
-      <div class="fn-pin__card">
-        <span class="fn-pin__keyword">관찰</span>
-        <span class="fn-pin__place">Impactsquare · 인천</span>
-        <p class="fn-pin__text">로컬 브랜드 사람들이 어떻게 공간을 읽는지 눈으로 배웠다</p>
+  <!-- STACK -->
+  <section class="section stack-section" id="stack">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Stack</h2>
       </div>
-      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#99B0ED"/>
-        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
-      </svg>
-    </div>
+      <p class="section-lead" data-i18n="stack.lead">디자인과 구현, 그 사이의 도구들.</p>
 
-    <!-- 핀 카드 2 — 현장 (서울) -->
-    <div class="fn-pin fn-pin--2">
-      <div class="fn-pin__card">
-        <span class="fn-pin__keyword">현장</span>
-        <span class="fn-pin__place">Kkuki · 서울</span>
-        <p class="fn-pin__text">기획이 화면보다 먼저라는 걸 커뮤니티 운영에서 체득했다</p>
-      </div>
-      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#FFDE94"/>
-        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
-      </svg>
-    </div>
+      <div class="box-grid">
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=figma.com&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">figma</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--purple">design system</span>
+            <span class="cat-chip cat-chip--sm cat-chip--amber">prototyping</span>
+            <span class="cat-chip cat-chip--sm cat-chip--violet">auto layout</span>
+          </div>
+          <div class="skill-dots" data-level="5" aria-label="능숙도 5점 중 5점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
 
-    <!-- 핀 카드 3 — 움직임 (강원) -->
-    <div class="fn-pin fn-pin--3">
-      <div class="fn-pin__card">
-        <span class="fn-pin__keyword">움직임</span>
-        <span class="fn-pin__place">Seoul → 각지</span>
-        <p class="fn-pin__text">걷다가 발견한 디테일이 결국 디자인 언어가 된다</p>
-      </div>
-      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#D1D161"/>
-        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
-      </svg>
-    </div>
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=adobe.com&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">photoshop</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--slate">visual editing</span>
+            <span class="cat-chip cat-chip--sm cat-chip--olive">graphic design</span>
+            <span class="cat-chip cat-chip--sm cat-chip--navy">layout</span>
+          </div>
+          <div class="skill-dots" data-level="4" aria-label="능숙도 5점 중 4점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
 
-    <!-- 핀 카드 4 — 실행 (경북) -->
-    <div class="fn-pin fn-pin--4">
-      <div class="fn-pin__card">
-        <span class="fn-pin__keyword">실행</span>
-        <span class="fn-pin__place">MUDA · 경상북도</span>
-        <p class="fn-pin__text">크라우드펀딩 266% — 만든 게 시장에서 증명됐다</p>
-        <span class="fn-pin__stat">266%</span>
-      </div>
-      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#FF7D59"/>
-        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
-      </svg>
-    </div>
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=xd.adobe.com&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">adobe xd</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--purple">wireframing</span>
+            <span class="cat-chip cat-chip--sm cat-chip--teal">interaction design</span>
+          </div>
+          <div class="skill-dots" data-level="4" aria-label="능숙도 5점 중 4점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
 
-    <!-- 핀 카드 5 — 연결 (영주) -->
-    <div class="fn-pin fn-pin--5">
-      <div class="fn-pin__card">
-        <span class="fn-pin__keyword">연결</span>
-        <span class="fn-pin__place">Pairchive · 영주</span>
-        <p class="fn-pin__text">두 사람의 링크가 쌓여 관계가 된다는 걸 설계하는 중</p>
-        <span class="fn-pin__badge">제작 중 →</span>
-      </div>
-      <svg class="fn-pin__marker" viewBox="0 0 24 36" width="20" height="28" aria-hidden="true">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#FFBDE8"/>
-        <circle cx="12" cy="12" r="5" fill="rgba(255,255,255,0.95)"/>
-      </svg>
-    </div>
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=illustrator.adobe.com&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">illustrator</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--olive">vector graphics</span>
+            <span class="cat-chip cat-chip--sm cat-chip--amber">icon design</span>
+          </div>
+          <div class="skill-dots" data-level="4" aria-label="능숙도 5점 중 4점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
 
-  </div>
-</section>
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=adobe.com&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">after effects</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--violet">motion graphics</span>
+            <span class="cat-chip cat-chip--sm cat-chip--purple">micro interaction</span>
+          </div>
+          <div class="skill-dots" data-level="3" aria-label="능숙도 5점 중 3점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
 
-<!-- ======= 04 WORK ======= -->
-<section id="work" class="section work" data-scroll-section>
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=developer.mozilla.org&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">html / css</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--navy">semantic web</span>
+            <span class="cat-chip cat-chip--sm cat-chip--slate">flexbox / grid</span>
+            <span class="cat-chip cat-chip--sm cat-chip--teal">responsive</span>
+          </div>
+          <div class="skill-dots" data-level="4" aria-label="능숙도 5점 중 4점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
 
-  <div class="work__inner">
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=javascript.com&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">javascript</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--amber">ES6+</span>
+            <span class="cat-chip cat-chip--sm cat-chip--navy">DOM API</span>
+            <span class="cat-chip cat-chip--sm cat-chip--green">async / fetch</span>
+          </div>
+          <div class="skill-dots" data-level="4" aria-label="능숙도 5점 중 4점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
 
-    <div class="work__top">
-      <div class="work__header">
-        <span class="work__sec-num">04</span>
-        <h2 class="work__sec-title">PROJECT</h2>
-      </div>
-      <div class="work__filter" role="tablist" aria-label="프로젝트 필터">
-        <button type="button" class="work-filter is-active" data-filter="all" role="tab" aria-selected="true">전체</button>
-        <button type="button" class="work-filter" data-filter="branding" role="tab" aria-selected="false">브랜딩</button>
-        <button type="button" class="work-filter" data-filter="product" role="tab" aria-selected="false">UIUX · 제품</button>
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=react.dev&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">react</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--teal">hooks / state</span>
+            <span class="cat-chip cat-chip--sm cat-chip--navy">components</span>
+          </div>
+          <div class="skill-dots" data-level="3" aria-label="능숙도 5점 중 3점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
+
+        <article class="box-card">
+          <img class="box-card-icon-img" src="https://www.google.com/s2/favicons?domain=vuejs.org&amp;sz=64" alt="" width="32" height="32">
+          <h4 class="box-card-title">vue.js</h4>
+          <div class="chip-row chip-row--stack">
+            <span class="cat-chip cat-chip--sm cat-chip--green">composition API</span>
+            <span class="cat-chip cat-chip--sm cat-chip--olive">SPA web</span>
+          </div>
+          <div class="skill-dots" data-level="3" aria-label="능숙도 5점 중 3점">
+            <span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span><span class="skill-dot"></span>
+          </div>
+        </article>
+
+        <article class="box-card box-card--dark">
+          <h4 class="box-card-title">design → code</h4>
+          <p class="box-card-desc" data-i18n="stack.codeDesc">Figma Auto Layout, Design Token, Component System을 HTML/CSS/JS로 직접 구현합니다.</p>
+          <div class="chip-row chip-row--card">
+            <span class="cat-chip cat-chip--sm cat-chip--purple" data-i18n="chip.figma">Figma</span>
+            <span class="cat-chip cat-chip--sm cat-chip--navy" data-i18n="chip.frontend">Frontend</span>
+          </div>
+          <a href="#work" class="box-card-btn" data-i18n="stack.viewProjects">view projects</a>
+        </article>
       </div>
     </div>
+  </section>
 
-    <div class="work__grid" aria-label="프로젝트 목록">
-
-      <a href="project-pairchive.html" class="work-card" data-category="product" aria-label="Pairchive">
-        <div class="work-card__thumb work-card__thumb--pairchive">
-          <span class="work-card__cat">제품 | UXUI</span>
-          <span class="work-card__thumb-name" aria-hidden="true">Pairchive</span>
-        </div>
-        <div class="work-card__meta">
-          <div class="work-card__row">
-            <h3 class="work-card__title">Pairchive</h3>
-            <span class="work-card__year">2025</span>
-          </div>
-          <p class="work-card__desc">흩어진 URL을 두 사람만의 공유 아카이브로 모으는 채팅 기반 링크 저장 서비스.</p>
-        </div>
-      </a>
-
-      <a href="project-muda.html" class="work-card" data-category="product" aria-label="MUDA">
-        <div class="work-card__thumb work-card__thumb--muda">
-          <span class="work-card__cat">제품 | UXUI</span>
-          <span class="work-card__thumb-name" aria-hidden="true">MUDA</span>
-        </div>
-        <div class="work-card__meta">
-          <div class="work-card__row">
-            <h3 class="work-card__title">MUDA</h3>
-            <span class="work-card__year">2025</span>
-          </div>
-          <p class="work-card__desc">AI 감정 다이어리 — 크라우드펀딩 목표 266% 달성.</p>
-        </div>
-      </a>
-
-      <a href="project-impactsquare.html" class="work-card" data-category="product" aria-label="Impactsquare">
-        <div class="work-card__thumb work-card__thumb--impact">
-          <span class="work-card__cat">제품 | UXUI</span>
-          <span class="work-card__thumb-name" aria-hidden="true">Impact</span>
-        </div>
-        <div class="work-card__meta">
-          <div class="work-card__row">
-            <h3 class="work-card__title">Impactsquare</h3>
-            <span class="work-card__year">2024</span>
-          </div>
-          <p class="work-card__desc">로컬 브랜드 팝업 UX — 공간 경험을 디지털 접점으로 옮겼습니다.</p>
-        </div>
-      </a>
-
-      <a href="project-kkuki.html" class="work-card" data-category="product" aria-label="Kkuki">
-        <div class="work-card__thumb work-card__thumb--kkuki">
-          <span class="work-card__cat">제품 | UXUI</span>
-          <span class="work-card__thumb-name" aria-hidden="true">Kkuki</span>
-        </div>
-        <div class="work-card__meta">
-          <div class="work-card__row">
-            <h3 class="work-card__title">Kkuki</h3>
-            <span class="work-card__year">2023</span>
-          </div>
-          <p class="work-card__desc">커뮤니티 서비스 기획 — 화면보다 참여 흐름을 먼저 설계했습니다.</p>
-        </div>
-      </a>
-
-      <a href="project-brand.html" class="work-card" data-category="branding" aria-label="Brand Work">
-        <div class="work-card__thumb work-card__thumb--brand">
-          <span class="work-card__cat">브랜딩</span>
-          <span class="work-card__thumb-name" aria-hidden="true">Brand</span>
-        </div>
-        <div class="work-card__meta">
-          <div class="work-card__row">
-            <h3 class="work-card__title">브랜드 작업</h3>
-            <span class="work-card__year">2022–24</span>
-          </div>
-          <p class="work-card__desc">로컬 브랜드 그래픽, 이벤트 배너, 에디토리얼 — 여정의 시작점.</p>
-        </div>
-      </a>
-
-      <a href="project-web.html" class="work-card" data-category="product" aria-label="Web Projects">
-        <div class="work-card__thumb work-card__thumb--web">
-          <span class="work-card__cat">제품 | UXUI</span>
-          <span class="work-card__thumb-name" aria-hidden="true">Web</span>
-        </div>
-        <div class="work-card__meta">
-          <div class="work-card__row">
-            <h3 class="work-card__title">웹 프로젝트</h3>
-            <span class="work-card__year">2024–25</span>
-          </div>
-          <p class="work-card__desc">GSAP · Locomotive 반응형 랜딩 — 디자인부터 퍼블리싱까지 한 흐름.</p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-<!-- ======= 05 CONTACT · 도착 ======= -->
-<section id="contact" class="section contact" data-scroll-section>
-
-  <div class="contact__header">
-    <span class="contact__sec-num">05</span>
-    <h2 class="contact__sec-title">CONTACT</h2>
-  </div>
-
-  <div class="contact__frame" id="contactFrame">
-
-    <div class="contact__map" aria-hidden="true">
-      <img class="contact__map-img" src="assets/hero-seoul-forest-map.svg" alt="" width="960" height="720" decoding="async">
-      <div class="contact__map-shade"></div>
-      <svg class="contact__route" viewBox="0 0 400 220" preserveAspectRatio="none" aria-hidden="true">
-        <path class="contact__route-path" id="contactRouteBg" d="M32 188 C100 168, 160 130, 220 95 S320 48, 348 38" pathLength="420"/>
-        <path class="contact__route-path contact__route-path--dash" id="contactRouteLine" d="M32 188 C100 168, 160 130, 220 95 S320 48, 348 38" pathLength="420" stroke-dasharray="420" stroke-dashoffset="420"/>
-      </svg>
-      <div class="contact__dest">
-        <span class="contact__dest-label">YAZII · 서울</span>
-        <svg class="contact__dest-pin" width="30" height="40" viewBox="0 0 24 36" aria-hidden="true">
-          <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z" fill="#EA4335"/>
-          <circle cx="12" cy="12" r="4.5" fill="#fff"/>
-        </svg>
-      </div>
-      <div class="contact__map-banner">
-        <span class="contact__map-banner-icon" aria-hidden="true">✓</span>
-        <div class="contact__map-banner-text">
-          <span class="contact__map-banner-title">목적지에 도착</span>
-          <span class="contact__map-banner-sub">서울숲 인근 · 약 5개 경유지</span>
-        </div>
-      </div>
-      <button type="button" class="contact__locate" id="contactLocate" aria-label="출발지로 돌아가기">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="3" fill="#4285F4"/>
-          <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#4285F4" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-
-    <article class="contact__panel" id="contactCard" aria-label="연락하기">
-
-      <div class="contact__arrive-head">
-        <div class="contact__arrive-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M4 4h16v12H4z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M4 4l8 8 8-8" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="contact__arrive-body">
-          <h3 class="contact__arrive-title">도착했어요</h3>
-          <p class="contact__arrive-sub">UI/UX 디자이너 YAZII — 함께 만들고 싶은 팀이 있다면 편하게 연락해 주세요.</p>
-        </div>
-        <span class="contact__badge">채용 · 협업 환영</span>
+  <!-- WORK -->
+  <section class="section" id="work">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Selected Work</h2>
       </div>
 
-      <div class="contact__stops">
-        <span class="contact__stops-label">이번 여정</span>
-        <div class="contact__stops-track" role="list" aria-label="포트폴리오 여정">
-          <div class="contact__stop is-done" role="listitem">
-            <span class="contact__stop-dot" aria-hidden="true">✓</span>
-            <span class="contact__stop-name">출발</span>
+      <div class="work-project-head">
+        <h3 class="work-project-name" id="workProjectName">MUDA</h3>
+      </div>
+      <p class="work-desc" id="workProjectDesc" data-i18n="work.muda">감정을 기록하고 돌아보는 다이어리 앱. 프로덕트 디자이너로 참여하여 텀블벅 크라우드펀딩 266% 달성에 기여했습니다.</p>
+      <div class="chip-row chip-row--work" id="workProjectChips" aria-label="Project tags"></div>
+
+      <div class="work-display">
+        <div class="imac-frame">
+          <div class="imac-screen">
+            <div class="screen-content" id="screenMain">
+              <div class="mockup-screen" data-mockup-project="pairchive">
+                <div class="mockup-ui-bar"><span class="m-dot"></span><span class="m-dot"></span><span class="m-dot"></span></div>
+                <div class="mockup-ui-body pairchive-imac">
+                  <div class="mockup-ui-sidebar">
+                    <div class="mockup-logo-mark"></div>
+                    <div class="sidebar-item active"></div>
+                    <div class="sidebar-item"></div>
+                    <div class="sidebar-item"></div>
+                  </div>
+                  <div class="mockup-ui-main">
+                    <div class="bookshelf-row">
+                      <div class="spine-book main-book">Pair</div>
+                      <div class="spine-book">Vol.12</div>
+                      <div class="spine-book">Archive</div>
+                    </div>
+                    <div class="shelf-wood"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-screen active" data-mockup-project="muda">
+                <div class="mockup-ui-bar"><span class="m-dot"></span><span class="m-dot"></span><span class="m-dot"></span></div>
+                <div class="mockup-ui-body muda-imac">
+                  <div class="muda-dash-sidebar"></div>
+                  <div class="muda-dash-content">
+                    <div class="muda-dash-header">Dashboard</div>
+                    <div class="muda-grid-dummy">
+                      <div class="muda-dummy-card text-card">Monthly Mood</div>
+                      <div class="muda-dummy-card chart-card"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-screen" data-mockup-project="impactsquare">
+                <div class="mockup-ui-bar"><span class="m-dot"></span><span class="m-dot"></span><span class="m-dot"></span></div>
+                <div class="mockup-ui-body muda-imac" style="background:#F0F7F0;">
+                  <div class="muda-dash-content">
+                    <div class="muda-dash-header" style="color:#2D6A4F;">영주 딸기밭</div>
+                    <div class="muda-grid-dummy">
+                      <div class="muda-dummy-card text-card" style="color:#2D6A4F;">Field Research</div>
+                      <div class="muda-dummy-card chart-card" style="background:radial-gradient(circle,#95D5B2 20%,transparent 60%);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mockup-screen" data-mockup-project="brand">
+                <div class="mockup-ui-bar"><span class="m-dot"></span><span class="m-dot"></span><span class="m-dot"></span></div>
+                <div class="mockup-ui-body" style="flex:1;background:#FFF5F0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:var(--orange);">Brand Identity</div>
+              </div>
+            </div>
           </div>
-          <div class="contact__stop is-done" role="listitem">
-            <span class="contact__stop-dot" aria-hidden="true">✓</span>
-            <span class="contact__stop-name">ABOUT</span>
+          <div class="imac-stand"></div>
+          <div class="imac-base"></div>
+        </div>
+
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen" id="screenPhone1">
+            <div class="mockup-screen" data-mockup-project="pairchive">
+              <div class="phone-inner-nav">Pairing</div>
+              <div class="pairing-ui-box">
+                <div class="pulse-ring"></div>
+                <span class="pair-label">Active Connection</span>
+              </div>
+            </div>
+            <div class="mockup-screen active" data-mockup-project="muda">
+              <div class="phone-inner-nav">Add Diary</div>
+              <div class="muda-emoji-selector">
+                <span>🥰</span><span>🥳</span><span>🥺</span>
+              </div>
+            </div>
+            <div class="mockup-screen" data-mockup-project="impactsquare">
+              <div class="phone-inner-nav">Survey</div>
+              <div class="muda-emoji-selector" style="font-size:12px;color:var(--gray-600);">현장 인터뷰</div>
+            </div>
+            <div class="mockup-screen" data-mockup-project="brand">
+              <div class="phone-inner-nav">Logo</div>
+              <div class="muda-emoji-selector" style="font-size:20px;color:var(--orange);">Y</div>
+            </div>
           </div>
-          <div class="contact__stop is-done" role="listitem">
-            <span class="contact__stop-dot" aria-hidden="true">✓</span>
-            <span class="contact__stop-name">필드노트</span>
-          </div>
-          <div class="contact__stop is-done" role="listitem">
-            <span class="contact__stop-dot" aria-hidden="true">✓</span>
-            <span class="contact__stop-name">PROJECT</span>
-          </div>
-          <div class="contact__stop is-current" role="listitem">
-            <span class="contact__stop-dot" aria-hidden="true">5</span>
-            <span class="contact__stop-name">도착</span>
+        </div>
+
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen" id="screenPhone2">
+            <div class="mockup-screen" data-mockup-project="pairchive">
+              <div class="phone-inner-nav">Bookshelf</div>
+              <div class="phone-bookshelf">
+                <div class="min-book">Pair #1</div>
+                <div class="min-book">Pair #2</div>
+              </div>
+            </div>
+            <div class="mockup-screen active" data-mockup-project="muda">
+              <div class="phone-inner-nav">Monthly</div>
+              <div class="muda-min-calendar">
+                <span class="cal-day"></span><span class="cal-day">🥰</span>
+                <span class="cal-day"></span><span class="cal-day">🥳</span>
+              </div>
+            </div>
+            <div class="mockup-screen" data-mockup-project="impactsquare">
+              <div class="phone-inner-nav">Report</div>
+              <div class="muda-min-calendar">
+                <span class="cal-day">📋</span><span class="cal-day">🍓</span>
+              </div>
+            </div>
+            <div class="mockup-screen" data-mockup-project="brand">
+              <div class="phone-inner-nav">Guide</div>
+              <div class="muda-min-calendar">
+                <span class="cal-day" style="background:var(--orange);color:#fff;">Aa</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="contact__person">
-        <div class="contact__person-avatar" aria-hidden="true">Y</div>
-        <div class="contact__person-info">
-          <p class="contact__person-name">YAZII <span class="contact__person-name-ko">임예지</span></p>
-          <p class="contact__person-role">UI/UX 디자이너 · 서울 · 신입 지원 중</p>
-          <div class="contact__email-row">
-            <a href="mailto:image4362@gmail.com" class="contact__email" id="contactEmail">image4362@gmail.com</a>
-            <button type="button" class="contact__copy" id="contactCopy" aria-label="이메일 복사">복사</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact__actions" role="group" aria-label="연락하기">
-        <a href="mailto:image4362@gmail.com?subject=YAZII%20포트폴리오%20문의" class="contact__action contact__action--primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v12H4z" stroke="currentColor" stroke-width="2"/><path d="M4 4l8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          이메일 보내기
+      <div class="project-list" id="projectList">
+        <a href="project-detail.html?project=muda" class="project-row is-active" data-project="muda">
+          <span class="project-row-lead">
+            <span class="project-row-thumb">
+              <span class="thumb-preview thumb-preview--muda" aria-hidden="true"></span>
+            </span>
+            <span class="project-row-name">muda</span>
+          </span>
+          <span class="project-row-cat">
+            <span class="cat-chip cat-chip--sm cat-chip--green" data-i18n="tag.productDesign">product design</span>
+          </span>
+          <span class="project-row-year">2025</span>
         </a>
-        <a href="/resume.pdf" class="contact__action contact__action--outline" download>레쥬메</a>
-        <a href="https://github.com/Yazii4362" class="contact__action contact__action--outline" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <button type="button" class="contact__action contact__action--share" id="contactShare" aria-label="포트폴리오 공유">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.8"/>
-            <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
-            <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.8"/>
-            <path d="M8.7 10.7l6.6-3.4M8.7 13.3l6.6 3.4" stroke="currentColor" stroke-width="1.8"/>
-          </svg>
-          공유
-        </button>
+        <a href="project-detail.html?project=pairchive" class="project-row" data-project="pairchive">
+          <span class="project-row-lead">
+            <span class="project-row-thumb">
+              <span class="thumb-preview thumb-preview--pairchive" aria-hidden="true"></span>
+            </span>
+            <span class="project-row-name">pairchive</span>
+          </span>
+          <span class="project-row-cat">
+            <span class="cat-chip cat-chip--sm cat-chip--purple" data-i18n="tag.founderDesign">founder / design</span>
+          </span>
+          <span class="project-row-year">2026</span>
+        </a>
+        <a href="project-detail.html?project=impactsquare" class="project-row" data-project="impactsquare">
+          <span class="project-row-lead">
+            <span class="project-row-thumb">
+              <span class="thumb-preview thumb-preview--impactsquare" aria-hidden="true"></span>
+            </span>
+            <span class="project-row-name">impactsquare</span>
+          </span>
+          <span class="project-row-cat">
+            <span class="cat-chip cat-chip--sm cat-chip--teal" data-i18n="tag.uxIntern">ux intern</span>
+          </span>
+          <span class="project-row-year">2024</span>
+        </a>
+        <a href="project-detail.html?project=brand" class="project-row" data-project="brand">
+          <span class="project-row-lead">
+            <span class="project-row-thumb">
+              <span class="thumb-preview thumb-preview--brand" aria-hidden="true"></span>
+            </span>
+            <span class="project-row-name">brand identity</span>
+          </span>
+          <span class="project-row-cat">
+            <span class="cat-chip cat-chip--sm cat-chip--olive" data-i18n="tag.graphicDesign">graphic design</span>
+          </span>
+          <span class="project-row-year">2022–25</span>
+        </a>
       </div>
 
-      <button type="button" class="contact__restart" id="contactRestart">처음으로 돌아가기 ↑</button>
-    </article>
-
-  </div>
-
-</section>
-
-</div><!-- /#scroll-container -->
-
-<p class="contact__toast" id="contactToast" role="status" aria-live="polite"></p>
-
-<!-- ABOUT 바텀시트 (히어로 길찾기) -->
-<div class="about-sheet" id="aboutSheet" aria-hidden="true">
-  <div class="about-sheet__backdrop" id="aboutSheetBackdrop"></div>
-  <div class="about-sheet__panel" id="aboutSheetPanel" role="dialog" aria-modal="true" aria-labelledby="aboutSheetTitle">
-    <div class="about-sheet__grab" aria-hidden="true"><span></span></div>
-    <button type="button" class="about-sheet__close" id="aboutSheetClose" aria-label="닫기">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-    <div class="about-sheet__scroll">
-      <div class="about-sheet__header">
-        <span class="about-sheet__sec-num">02</span>
-        <h2 class="about-sheet__title" id="aboutSheetTitle">ABOUT</h2>
-      </div>
-      <div class="about-sheet__mount" id="aboutSheetMount"></div>
+      <a href="project-detail.html?project=muda" class="work-link" id="workDetailLink">
+        <span data-i18n="work.viewProject">View Project</span>
+        <span class="link-arrow">→</span>
+      </a>
     </div>
-  </div>
-</div>
+  </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-top">
+        <h2 class="contact-headline" data-i18n-html="contact.headline">함께 만들어요<span class="dot">.</span></h2>
+        <a href="assets/resume.pdf" class="contact-resume-btn" download>
+          <span data-i18n="contact.resume">Resume</span>
+          <span class="contact-resume-icon" aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <footer class="contact-footer">
+        <div>
+          <p class="contact-col-label">Email</p>
+          <p class="contact-col-value"><a href="mailto:hello@yazii.com">hello@yazii.com</a></p>
+        </div>
+        <div>
+          <p class="contact-col-label">LinkedIn</p>
+          <p class="contact-col-value"><a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/yazii</a></p>
+        </div>
+        <div>
+          <p class="contact-col-label">Github</p>
+          <p class="contact-col-value"><a href="https://github.com" target="_blank" rel="noopener">github.com/yazii</a></p>
+        </div>
+      </footer>
+      <p class="copyright" data-i18n="contact.copyright">© 2026 YAZII — Im Ye-ji. All rights reserved.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/animations.js"></script>
 <script src="js/main.js"></script>
-<script src="js/screens.js"></script>
 </body>
 </html>

@@ -1,97 +1,84 @@
-/* tokens.css — STROKE UI × WHITE+COLOR GRADIENT */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 :root {
-  /* ── 순백 베이스 ── */
+  --black: #111111;
   --white: #FFFFFF;
+  --ink: #1A1A1A;
 
-  /* ── NGC 브랜드 팔레트 ── */
-  --ngc-olive:      #D1D161;
-  --ngc-coral:      #FF7D59;
-  --ngc-pink:       #FFBDE8;
-  --ngc-cream:      #FFFAED;
-  --ngc-periwinkle: #99B0ED;
-  --ngc-peach:      #FFE5E0;
-  --ngc-salmon:     #FAAB94;
-  --ngc-yellow:     #FFDE94;
-  --ngc-lavender:   #CDDBF9;
-  --ngc-blush:      #FFEDEA;
-  --ngc-navy:       #2C2C34;
+  --sky: #52B4F5;
+  --sky-deep: #3A9EE8;
+  --sky-bright: #6EC5FF;
+  --orange: #FF5722;
+  --orange-soft: #FF7043;
+  --hero-red: #FF3A1F;
+  --hero-orange: #FF6A0A;
+  --hero-blue-top: #3D9AE8;
+  --hero-blue-mid: #52B8F5;
+  --hero-blue-light: #6EC8FF;
 
-  /* ── 구글 4색 → 지도 UI용 NGC 매핑 ── */
-  --g-blue:   var(--ngc-periwinkle);
-  --g-red:    var(--ngc-coral);
-  --g-yellow: var(--ngc-yellow);
-  --g-green:  var(--ngc-olive);
+  --gray-100: #F7F7F7;
+  --gray-200: #ECECEC;
+  --gray-400: #9E9E9E;
+  --gray-600: #5C5C5C;
 
-  /* ── 섹션별 배경 (지도 구간) ── */
-  --bg-hero:    linear-gradient(180deg, var(--ngc-lavender) 0%, var(--ngc-cream) 55%);
-  --bg-about:   linear-gradient(180deg, #F3F3F3 0%, var(--ngc-cream) 100%);
-  --bg-field:   linear-gradient(180deg, var(--ngc-yellow) 0%, var(--ngc-cream) 60%);
-  --bg-work:    linear-gradient(180deg, #FFFFFF 0%, #F0F4FF 100%);
-  --bg-contact: linear-gradient(180deg, var(--ngc-pink) 0%, var(--ngc-cream) 55%);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', 'Pretendard', -apple-system, sans-serif;
 
-  /* ── 지도 팔레트 ── */
-  --map-bg:       var(--ngc-cream);
-  --map-road:     #FFFFFF;
-  --map-road-y:   var(--ngc-yellow);
-  --map-grass:    var(--ngc-olive);
-  --map-water:    var(--ngc-lavender);
-  --map-building: var(--ngc-peach);
-  --map-border:   var(--ngc-salmon);
-  --map-label:    var(--ngc-navy);
+  --r-sm: 12px;
+  --r-md: 20px;
+  --r-lg: 28px;
+  --r-pill: 999px;
 
-  /* ── 지도 핀 · 마커 ── */
-  --pin-1: var(--ngc-periwinkle);
-  --pin-2: var(--ngc-yellow);
-  --pin-3: var(--ngc-olive);
-  --pin-4: var(--ngc-coral);
-  --pin-5: var(--ngc-pink);
+  --gap-sm: 16px;
+  --gap-md: 24px;
+  --gap-lg: 48px;
+  --gap-xl: 80px;
+  --gap-2xl: 120px;
 
-  /* ── 그레이 스케일 ── */
-  --gray-50:  #F8F9FA;
-  --gray-100: #F1F3F4;
-  --gray-200: #E8EAED;
-  --gray-300: #DADCE0;
-  --gray-400: #BDC1C6;
-  --gray-500: #9AA0A6;
-  --gray-600: #80868B;
-  --gray-700: #5F6368;
-  --gray-800: #3C4043;
-  --gray-900: #202124;
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.25s;
+  --dur-base: 0.5s;
 
-  /* ── 스트로크 컬러 (지도 UI) ── */
-  --stroke-default: #E8EAED;
-  --stroke-blue:    var(--ngc-periwinkle);
-  --stroke-green:   var(--ngc-olive);
-  --stroke-red:     var(--ngc-coral);
-  --stroke-yellow:  var(--ngc-yellow);
-  --stroke-purple:  var(--ngc-pink);
+  --page-max: 1080px;
+  --page-pad: clamp(24px, 5vw, 64px);
+}
 
-  /* ── 카드 내부 그라디언트 (필드노트 핀) ── */
-  --card-blue:   linear-gradient(160deg, var(--ngc-lavender) 0%, var(--ngc-cream) 60%);
-  --card-green:  linear-gradient(160deg, rgba(209,209,97,0.45) 0%, var(--ngc-cream) 60%);
-  --card-yellow: linear-gradient(160deg, var(--ngc-yellow) 0%, var(--ngc-cream) 60%);
-  --card-red:    linear-gradient(160deg, var(--ngc-peach) 0%, var(--ngc-cream) 60%);
-  --card-purple: linear-gradient(160deg, var(--ngc-pink) 0%, var(--ngc-cream) 60%);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* ── 타이포 (Apple system stack) ── */
-  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Apple SD Gothic Neo", "Noto Sans KR", "Helvetica Neue", Arial, sans-serif;
-  --display: var(--sans);
-  --serif: var(--sans);
-  --mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Mono", monospace;
+html {
+  scroll-behavior: smooth;
+}
 
-  /* ── 스페이싱 ── */
-  --s1:4px; --s2:8px; --s3:16px; --s4:24px;
-  --s5:40px; --s6:64px; --s7:96px;
+body {
+  font-family: var(--font-body);
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-  /* ── 반경 ── */
-  --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px; --r-pill: 999px;
+img {
+  max-width: 100%;
+  display: block;
+}
 
-  /* ── 그림자 (부드럽게) ── */
-  --sh-xs: 0 1px 4px rgba(60,64,67,0.10);
-  --sh-sm: 0 2px 8px rgba(60,64,67,0.12), 0 1px 3px rgba(60,64,67,0.08);
-  --sh-md: 0 4px 18px rgba(60,64,67,0.13), 0 2px 6px rgba(60,64,67,0.08);
-  --sh-lg: 0 8px 32px rgba(60,64,67,0.14), 0 4px 10px rgba(60,64,67,0.08);
-  --sh-pin: 0 4px 14px rgba(0,0,0,0.22);
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  --container: 1120px;
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
 }
