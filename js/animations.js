@@ -47,7 +47,7 @@
         lead = null;
       } else {
         blocks = gsap.utils.toArray(section.querySelectorAll(
-          '.chip-row, .about-grid, .career-block, .work-project-head, .work-desc, #workProjectChips, .work-display, .project-list, .work-link'
+          '.chip-row, .about-grid, .career-block, .work-project-head, .work-desc, #workProjectChips, .work-display, .work-link'
         ));
       }
 
@@ -80,8 +80,7 @@
   function initBatches() {
     var batches = [
       { sel: '.box-card', y: 32, stagger: 0.06 },
-      { sel: '.stack-item', y: 12, stagger: 0.04 },
-      { sel: '.project-row', y: 16, stagger: 0.07 }
+      { sel: '.stack-item', y: 12, stagger: 0.04 }
     ];
 
     batches.forEach(function (cfg) {
