@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
       slug: 'strawberryfields',
       tags: [
         { key: 'tag.businessPlanning', color: 'teal' },
-        { key: 'chip.product', color: 'green' },
-        { key: 'chip.research', color: 'amber' }
+        { key: 'tag.businessOperations', color: 'green' },
+        { key: 'chip.product', color: 'amber' }
       ]
     },
     brand: {
