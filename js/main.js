@@ -1,48 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-  var PROJECTS = {
-    muda: {
-      name: 'MUDA',
-      descKey: 'work.muda',
-      slug: 'muda',
-      tags: [
-        { key: 'tag.productOwner', color: 'green' },
-        { key: 'chip.product', color: 'slate' },
-        { key: 'chip.prototype', color: 'amber' }
-      ]
-    },
-    pairchive: {
-      name: 'Pairchive',
-      descKey: 'work.pairchive',
-      slug: 'pairchive',
-      tags: [
-        { key: 'tag.founderDesign', color: 'purple' },
-        { key: 'chip.uiux', color: 'slate' },
-        { key: 'chip.figma', color: 'navy' }
-      ]
-    },
-    strawberryfields: {
-      name: 'Strawberry Fields',
-      descKey: 'work.strawberryfields',
-      slug: 'strawberryfields',
-      tags: [
-        { key: 'tag.businessPlanning', color: 'teal' },
-        { key: 'tag.businessOperations', color: 'green' },
-        { key: 'chip.product', color: 'amber' }
-      ]
-    },
-    brand: {
-      name: 'Brand Identity',
-      descKey: 'work.brand',
-      slug: 'brand',
-      tags: [
-        { key: 'tag.graphicDesign', color: 'olive' },
-        { key: 'chip.brand', color: 'amber' }
-      ]
-    }
-  };
+  var REGISTRY = window.PROJECT_REGISTRY || {};
+  var LIST_ORDER = window.PROJECT_LIST_ORDER || Object.keys(REGISTRY);
+  var ASSETS = window.PROJECT_ASSETS || {};
 
-  var activeProjectKey = 'muda';
+  var activeProjectKey = LIST_ORDER[0] || 'pairchive';
 
   var hasGsap = typeof gsap !== 'undefined';
   var EASE_IO = 'power2.inOut';
@@ -54,11 +16,86 @@ document.addEventListener('DOMContentLoaded', function () {
   var workProjectDesc = document.getElementById('workProjectDesc');
   var workProjectChips = document.getElementById('workProjectChips');
   var workDetailLink = document.getElementById('workDetailLink');
+  var projectList = document.getElementById('projectList');
   var screens = [screenMain, screenPhone1, screenPhone2].filter(Boolean);
 
   function resolveProjectKey(key) {
     if (key === 'impactsquare') return 'strawberryfields';
     return key;
+  }
+
+  function getProject(key) {
+    key = resolveProjectKey(key);
+    return REGISTRY[key] ? Object.assign({ slug: key }, REGISTRY[key]) : null;
+  }
+
+  function thumbHtml(key) {
+    var meta = REGISTRY[key];
+    var asset = ASSETS[key];
+    if (!meta || !asset) return '';
+
+    var src = asset.thumb;
+    var alt = meta.name;
+    var type = meta.thumbType || 'photo';
+
+    if (type === 'pairchive') {
+      return (
+        '<span class="thumb-preview thumb-preview--pairchive">' +
+          '<img src="' + src + '" alt="' + alt + '">' +
+        '</span>'
+      );
+    }
+
+    if (type === 'brand' || type === 'babpool') {
+      return (
+        '<span class="thumb-preview thumb-preview--brand">' +
+          '<img src="' + src + '" alt="' + alt + '">' +
+        '</span>'
+      );
+    }
+
+    return (
+      '<span class="thumb-preview thumb-preview--photo">' +
+        '<img src="' + src + '" alt="' + alt + '">' +
+      '</span>'
+    );
+  }
+
+  function buildProjectList() {
+    if (!projectList) return;
+
+    projectList.innerHTML = LIST_ORDER.map(function (key) {
+      var project = REGISTRY[key];
+      if (!project) return '';
+
+      var isActive = key === activeProjectKey;
+      var tag = project.rowTag || {};
+
+      return (
+        '<a href="project-detail.html?project=' + key + '" class="project-row' + (isActive ? ' is-active' : '') + '" data-project="' + key + '">' +
+          '<span class="project-row-lead">' +
+            '<span class="project-row-thumb">' + thumbHtml(key) + '</span>' +
+            '<span class="project-row-name">' + project.listName + '</span>' +
+          '</span>' +
+          '<span class="project-row-cat">' +
+            '<span class="cat-chip cat-chip--sm cat-chip--' + tag.color + '" data-i18n="' + tag.key + '"></span>' +
+          '</span>' +
+          '<span class="project-row-year">' + project.year + '</span>' +
+        '</a>'
+      );
+    }).join('');
+
+    if (window.PortfolioI18n) {
+      projectList.querySelectorAll('[data-i18n]').forEach(function (el) {
+        window.PortfolioI18n.applyElement(el);
+      });
+    }
+
+    projectList.querySelectorAll('.project-row').forEach(function (row) {
+      row.addEventListener('mouseenter', function () {
+        switchProject(row.getAttribute('data-project'));
+      });
+    });
   }
 
   function renderProjectChips(project) {
@@ -96,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function switchProject(key) {
     key = resolveProjectKey(key);
-    var project = PROJECTS[key];
+    var project = getProject(key);
     if (!project) return;
     activeProjectKey = key;
 
@@ -159,11 +196,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 200);
   }
 
-  document.querySelectorAll('.project-row').forEach(function (row) {
-    row.addEventListener('mouseenter', function () {
-      switchProject(row.getAttribute('data-project'));
-    });
-  });
+  buildProjectList();
+
+  var initialProject = getProject(activeProjectKey);
+  if (initialProject) {
+    if (workProjectName) workProjectName.textContent = initialProject.name;
+    updateProjectCopy(initialProject);
+    renderProjectChips(initialProject);
+    applyMockup(activeProjectKey);
+    if (workDetailLink) workDetailLink.href = 'project-detail.html?project=' + initialProject.slug;
+  }
 
   if (!hasGsap) {
     screens.forEach(function (el) {
@@ -215,11 +257,15 @@ document.addEventListener('DOMContentLoaded', function () {
   onScroll();
 
   document.addEventListener('langchange', function () {
-    updateProjectCopy(PROJECTS[activeProjectKey]);
-    renderProjectChips(PROJECTS[activeProjectKey]);
+    var project = getProject(activeProjectKey);
+    if (project) updateProjectCopy(project);
+    renderProjectChips(getProject(activeProjectKey));
+    if (projectList) {
+      projectList.querySelectorAll('[data-i18n]').forEach(function (el) {
+        window.PortfolioI18n.applyElement(el);
+      });
+    }
   });
-
-  renderProjectChips(PROJECTS[activeProjectKey]);
 
   if (!hasGsap) {
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {

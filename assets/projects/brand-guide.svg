@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" fill="none" aria-hidden="true">
+  <rect width="800" height="560" fill="#fff"/>
+  <rect x="0" y="0" width="800" height="56" fill="#FFF5F0"/>
+  <text x="40" y="36" font-family="system-ui,sans-serif" font-size="18" font-weight="800" fill="#FF7043">Brand Guide</text>
+  <text x="40" y="110" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#888">PRIMARY COLORS</text>
+  <rect x="40" y="130" width="120" height="80" rx="8" fill="#FF7043"/>
+  <rect x="180" y="130" width="120" height="80" rx="8" fill="#FFB74D"/>
+  <rect x="320" y="130" width="120" height="80" rx="8" fill="#1A1A1A"/>
+  <text x="40" y="260" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#888">TYPOGRAPHY</text>
+  <text x="40" y="310" font-family="Georgia,serif" font-size="42" font-weight="700" fill="#1A1A1A">Display Aa</text>
+  <text x="40" y="360" font-family="system-ui,sans-serif" font-size="18" font-weight="500" fill="#555">Body text  Pretendard / System UI</text>
+  <rect x="40" y="400" width="720" height="120" rx="12" fill="#FFF5F0"/>
+  <circle cx="100" cy="460" r="32" fill="#FF7043"/>
+  <rect x="160" y="440" width="200" height="12" rx="6" fill="#FFB74D"/>
+  <rect x="160" y="464" width="160" height="10" rx="5" fill="#E0E0E0"/>
+  <rect x="160" y="484" width="180" height="10" rx="5" fill="#E0E0E0"/>
+</svg>

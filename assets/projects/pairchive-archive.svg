@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 780" fill="none" aria-hidden="true">
+  <rect width="390" height="780" fill="#EAF6FC"/>
+  <rect x="0" y="0" width="390" height="88" fill="#4AABD4"/>
+  <text x="24" y="54" font-family="system-ui,sans-serif" font-size="20" font-weight="800" fill="#fff">Bookshelf</text>
+  <rect x="24" y="120" width="160" height="220" rx="12" fill="#fff"/>
+  <rect x="206" y="120" width="160" height="220" rx="12" fill="#fff"/>
+  <rect x="40" y="150" width="40" height="150" rx="4" fill="#6EC4E8"/>
+  <rect x="88" y="160" width="36" height="140" rx="4" fill="#89D4F0"/>
+  <rect x="130" y="145" width="38" height="155" rx="4" fill="#4AABD4"/>
+  <rect x="222" y="155" width="42" height="145" rx="4" fill="#6EC4E8"/>
+  <rect x="272" y="165" width="34" height="135" rx="4" fill="#89D4F0"/>
+  <rect x="314" y="150" width="36" height="150" rx="4" fill="#4AABD4"/>
+  <rect x="24" y="360" width="342" height="12" rx="4" fill="#C49A6C"/>
+  <rect x="24" y="400" width="160" height="220" rx="12" fill="#fff"/>
+  <rect x="206" y="400" width="160" height="220" rx="12" fill="#fff"/>
+  <rect x="40" y="430" width="38" height="150" rx="4" fill="#4AABD4"/>
+  <rect x="86" y="440" width="34" height="140" rx="4" fill="#6EC4E8"/>
+  <rect x="128" y="425" width="40" height="155" rx="4" fill="#89D4F0"/>
+  <rect x="222" y="435" width="36" height="145" rx="4" fill="#6EC4E8"/>
+  <rect x="268" y="445" width="38" height="135" rx="4" fill="#4AABD4"/>
+  <rect x="314" y="430" width="34" height="150" rx="4" fill="#89D4F0"/>
+  <rect x="24" y="640" width="342" height="12" rx="4" fill="#C49A6C"/>
+</svg>
